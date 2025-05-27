@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Crafters - Employment Insights</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-brand i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #6366f1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #1e293b, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* List and Details View */
+        .list-details-container {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .list-view {
+            width: 30%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 600px;
+            transition: all 0.3s ease;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .list-item.active {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .list-item.active .list-icon {
+            background: white;
+        }
+
+        .list-item.active .list-icon i {
+            color: #6366f1;
+        }
+
+        .list-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .list-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .list-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .details-view {
+            width: 70%;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .details-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+        }
+
+        .details-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .details-title {
+            font-size: 2rem;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .details-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .detail-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: #e2e8f0;
+            transform: translateY(-3px);
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #10b981;
+        }
+
+        .detail-value.salary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .list-toggle {
+            display: none;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .list-toggle i {
+            margin-right: 0.5rem;
+        }
+
+        /* Stats Overview */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .overview-card {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .overview-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* Interactive Chart */
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .chart-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .chart-header h3 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .chart-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #6366f1;
+            background: transparent;
+            color: #6366f1;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .chart-btn:hover,
+        .chart-btn.active {
+            background: #6366f1;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            background: #e2e8f0;
+            transform: translateX(10px);
+        }
+
+        .bar-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .bar-label {
+            min-width: 120px;
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        .bar-container {
+            flex: 1;
+            background: #e2e8f0;
+            border-radius: 25px;
+            height: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 25px;
+            transition: width 1.5s ease;
+            position: relative;
+        }
+
+        .bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .bar-value {
+            min-width: 60px;
+            font-weight: 800;
+            color: #6366f1;
+            font-size: 1.1rem;
+        }
+
+        /* Back to Home */
+        .back-home {
+            display: inline-block;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #f59e0b);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-section a:hover {
+            color: #fbbf24;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .list-details-container {
+                flex-direction: column;
+            }
+
+            .list-view {
+                width: 100%;
+                max-height: none;
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                bottom: 0;
+                z-index: 999;
+                transition: left 0.3s ease;
+            }
+
+            .list-view.active {
+                left: 0;
+            }
+
+            .details-view {
+                width: 100%;
+            }
+
+            .list-toggle {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .chart-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .bar-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-brand {
+                font-size: 1.5rem;
+            }
+
+            .details-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .details-icon i {
+                font-size: 2rem;
+            }
+
+            .details-title {
+                font-size: 1.5rem;
+            }
+
+            .chart-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Career Crafters</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="employment.html">Employment</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-home">Back to Home</a>
+            <div class="section-header">
+                <h2>India Employment Market Insights</h2>
+                <p>Explore detailed analysis of job market trends across key Indian industries to make informed career decisions.</p>
+            </div>
+
+            <!-- List and Details View -->
+            <button class="list-toggle"><i class="fas fa-bars"></i> Show Industries</button>
+            <div class="list-details-container">
+                <div class="list-view" id="list-view">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <div class="details-view" id="details-view">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Overview Stats -->
+            <div class="stats-overview">
+                <div class="overview-card">
+                    <div class="overview-number">65%</div>
+                    <div class="overview-label">Average Employment Rate</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-number">10</div>
+                    <div class="overview-label">Industry Sectors</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-number">6 LPA</div>
+                    <div class="overview-label">Average Salary</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-number">5.5%</div>
+                    <div class="overview-label">Annual Growth</div>
+                </div>
+            </div>
+
+            <!-- Interactive Chart -->
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Industry Employment Comparison (India)</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-chart="employment">Employment Rate</button>
+                        <button class="chart-btn" data-chart="growth">Growth Rate</button>
+                        <button class="chart-btn" data-chart="salary">Average Salary</button>
+                    </div>
+                </div>
+                <div class="chart" id="employment-chart">
+                    <!-- Chart bars will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Career Crafters</h3>
+                    <p>Empowering the next generation of professionals to make informed career decisions and achieve their dreams through comprehensive guidance and innovative solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="employment.html">Employment</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#counseling">Career Counseling</a></li>
+                        <li><a href="index.html#college">College Selection</a></li>
+                        <li><a href="index.html#skills">Skill Development</a></li>
+                        <li><a href="index.html#resume">Resume Building</a></li>
+                        <li><a href="index.html#interview">Interview Prep</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> info@careercrafters.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Career Street, Success City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Career Crafters. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mock API Data
+        const mockApiData = {
+            sectors: [
+                { name: "IT & Software", icon: "fas fa-laptop-code", employment_rate: 85, salary_range: "6-25 LPA", growth: 12 },
+                { name: "Agriculture", icon: "fas fa-tractor", employment_rate: 40, salary_range: "1-5 LPA", growth: 2 },
+                { name: "Manufacturing", icon: "fas fa-industry", employment_rate: 65, salary_range: "3-12 LPA", growth: 5 },
+                { name: "Healthcare", icon: "fas fa-heartbeat", employment_rate: 80, salary_range: "4-15 LPA", growth: 8 },
+                { name: "Retail", icon: "fas fa-shopping-cart", employment_rate: 70, salary_range: "2-10 LPA", growth: 6 },
+                { name: "Construction", icon: "fas fa-hard-hat", employment_rate: 60, salary_range: "2-8 LPA", growth: 4 },
+                { name: "Education", icon: "fas fa-chalkboard-teacher", employment_rate: 75, salary_range: "3-10 LPA", growth: 3 },
+                { name: "BFSI", icon: "fas fa-calculator", employment_rate: 78, salary_range: "5-20 LPA", growth: 7 },
+                { name: "Textiles", icon: "fas fa-tshirt", employment_rate: 55, salary_range: "2-7 LPA", growth: 3 },
+                { name: "Logistics", icon: "fas fa-truck", employment_rate: 68, salary_range: "3-12 LPA", growth: 6 }
+            ],
+            overview: {
+                avg_employment_rate: "65%",
+                total_sectors: 10,
+                avg_salary: "6 LPA",
+                annual_growth: "5.5%"
+            }
+        };
+
+        // Mobile Navigation
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+
+        // List View Toggle
+        const listToggle = document.querySelector(".list-toggle");
+        const listView = document.querySelector(".list-view");
+
+        listToggle.addEventListener("click", () => {
+            listView.classList.toggle("active");
+            listToggle.innerHTML = listView.classList.contains("active") 
+                ? '<i class="fas fa-times"></i> Hide Industries' 
+                : '<i class="fas fa-bars"></i> Show Industries';
+        });
+
+        // Render List View
+        function renderListView() {
+            const listContainer = document.getElementById("list-view");
+            listContainer.innerHTML = "";
+            mockApiData.sectors.forEach((sector, index) => {
+                const listItem = document.createElement("div");
+                listItem.className = `list-item ${index === 0 ? 'active' : ''}`;
+                listItem.innerHTML = `
+                    <div class="list-icon">
+                        <i class="${sector.icon}"></i>
+                    </div>
+                    <div class="list-name">${sector.name}</div>
+                `;
+                listItem.addEventListener("click", () => {
+                    document.querySelectorAll(".list-item").forEach(item => item.classList.remove("active"));
+                    listItem.classList.add("active");
+                    renderDetailsView(sector);
+                    if (window.innerWidth <= 768) {
+                        listView.classList.remove("active");
+                        listToggle.innerHTML = '<i class="fas fa-bars"></i> Show Industries';
+                    }
+                });
+                listContainer.appendChild(listItem);
+            });
+        }
+
+        // Render Details View
+        function renderDetailsView(sector) {
+            const detailsContainer = document.getElementById("details-view");
+            detailsContainer.innerHTML = `
+                <div class="details-header">
+                    <div class="details-icon">
+                        <i class="${sector.icon}"></i>
+                    </div>
+                    <h2 class="details-title">${sector.name}</h2>
+                </div>
+                <div class="details-content">
+                    <div class="detail-item">
+                        <div class="detail-label">Employment Rate</div>
+                        <div class="detail-value">${sector.employment_rate}%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Salary Range</div>
+                        <div class="detail-value salary">${sector.salary_range}</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Annual Growth</div>
+                        <div class="detail-value">+${sector.growth}%</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Employment Data for Chart
+        const employmentData = {
+            employment: mockApiData.sectors.map(sector => ({
+                name: sector.name,
+                icon: sector.icon,
+                value: sector.employment_rate
+            })),
+            growth: mockApiData.sectors.map(sector => ({
+                name: sector.name,
+                icon: sector.icon,
+                value: sector.growth
+            })),
+            salary: mockApiData.sectors.map(sector => ({
+                name: sector.name,
+                icon: sector.icon,
+                value: parseFloat(sector.salary_range.split('-')[1])
+            }))
+        };
+
+        // Render Chart
+        function renderChart(type) {
+            const chart = document.getElementById("employment-chart");
+            const data = employmentData[type];
+            const maxValue = Math.max(...data.map(item => item.value));
+            
+            chart.innerHTML = "";
+            
+            data.forEach((item, index) => {
+                const percentage = (item.value / maxValue) * 100;
+                const suffix = type === 'salary' ? ' LPA' : '%';
+                
+                const chartBar = document.createElement("div");
+                chartBar.className = "chart-bar";
+                chartBar.innerHTML = `
+                    <div class="bar-icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    <div class="bar-label">${item.name}</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 0%" data-width="${percentage}%"></div>
+                    </div>
+                    <div class="bar-value">${item.value}${suffix}</div>
+                `;
+                chart.appendChild(chartBar);
+                
+                setTimeout(() => {
+                    const barFill = chartBar.querySelector('.bar-fill');
+                    barFill.style.width = percentage + '%';
+                }, index * 100);
+            });
+        }
+
+        // Chart Controls
+        document.querySelectorAll('.chart-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderChart(btn.getAttribute('data-chart'));
+            });
+        });
+
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll Effects
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 100) {
+                header.style.background = "rgba(255, 255, 255, 0.98)";
+                header.style.boxShadow = "0 4px 40px rgba(0, 0, 0, 0.15)";
+            } else {
+                header.style.background = "rgba(255, 255, 255, 0.95)";
+                header.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.1)";
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced Hover Effects
+        document.querySelectorAll(".overview-card, .list-item, .detail-item").forEach((el) => {
+            el.addEventListener("mouseenter", function () {
+                this.style.transform = "translateY(-5px)";
+            });
+            el.addEventListener("mouseleave", function () {
+                this.style.transform = "translateY(0)";
+            });
+        });
+
+        // Initialize
+        document.addEventListener("DOMContentLoaded", () => {
+            createParticles();
+            renderListView();
+            renderDetailsView(mockApiData.sectors[0]); // Default to first sector
+            renderChart('employment');
+            
+            document.querySelectorAll('.overview-card, .list-view, .details-view, .chart-container').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
