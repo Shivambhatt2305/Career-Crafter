@@ -95,7 +95,7 @@
             gap: clamp(0.5rem, 2vw, 1rem);
             align-items: center;
             flex: 1;
-            max-width: min(600px, 90vw);
+            max-width: min(700px, 90vw);
             margin: 0 clamp(0.5rem, 3vw, 2rem);
             min-width: 0;
         }
@@ -140,6 +140,13 @@
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
 
+        .filters-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
         .filter-dropdown {
             position: relative;
             flex-shrink: 0;
@@ -155,6 +162,9 @@
             transition: all 0.3s ease;
             font-size: clamp(0.85rem, 2.5vw, 1rem);
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .filter-btn:hover {
@@ -172,10 +182,29 @@
             min-width: 200px;
             display: none;
             z-index: 1001;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
         .filter-menu.active {
             display: block;
+        }
+
+        .filter-section {
+            margin-bottom: 1rem;
+        }
+
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-section-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.25rem;
         }
 
         .filter-option {
@@ -188,11 +217,34 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
         }
 
         .filter-option:hover {
             background: #f1f5f9;
+        }
+
+        .filter-option.active {
+            background: #e0e7ff;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .clear-filters {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .clear-filters:hover {
+            background: #dc2626;
         }
 
         .back-home {
@@ -211,6 +263,31 @@
         .back-home:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Active Filters Display */
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        .active-filter-tag {
+            background: #e0e7ff;
+            color: #6366f1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .active-filter-tag .remove-filter {
+            cursor: pointer;
+            font-weight: bold;
         }
 
         /* Main Content */
@@ -657,7 +734,7 @@
             
             .search-container {
                 margin: 0 1rem;
-                max-width: 500px;
+                max-width: 600px;
             }
             
             .college-list-container {
@@ -678,11 +755,15 @@
             
             .search-container {
                 margin: 0 0.75rem;
-                max-width: 450px;
+                max-width: 500px;
             }
             
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+
+            .filters-container {
+                gap: 0.25rem;
             }
         }
 
@@ -704,6 +785,26 @@
                 margin: 0;
                 max-width: none;
                 order: 1;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-input {
+                border-radius: 25px;
+            }
+
+            .search-btn {
+                border-radius: 25px;
+                width: 100%;
+            }
+
+            .filters-container {
+                width: 100%;
+                justify-content: center;
             }
             
             .back-home {
@@ -713,7 +814,7 @@
             
             .main-content {
                 flex-direction: column;
-                padding-top: clamp(140px, 20vw, 160px);
+                padding-top: clamp(180px, 25vw, 200px);
                 gap: 1rem;
             }
             
@@ -758,6 +859,10 @@
                 left: 0;
                 min-width: 180px;
             }
+
+            .active-filters {
+                padding: 0 1rem;
+            }
         }
 
         /* Mobile phones */
@@ -765,7 +870,7 @@
             .main-content {
                 padding-left: 0.75rem;
                 padding-right: 0.75rem;
-                padding-top: clamp(160px, 25vw, 180px);
+                padding-top: clamp(200px, 30vw, 220px);
             }
             
             .college-list-container,
@@ -783,31 +888,6 @@
                 gap: 0.75rem;
             }
             
-            .search-container {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .search-bar {
-                width: 100%;
-            }
-            
-            .search-input {
-                border-radius: 25px;
-                padding: 0.75rem 1rem;
-            }
-            
-            .search-btn {
-                border-radius: 25px;
-                width: 100%;
-                padding: 0.75rem;
-            }
-
-            .filter-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
             .navbar {
                 padding: 0.75rem;
             }
@@ -825,6 +905,16 @@
                 align-items: flex-start;
                 gap: 0.25rem;
             }
+
+            .filters-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .filter-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* Very small phones */
@@ -841,10 +931,6 @@
             
             .navbar {
                 padding: 0.5rem;
-            }
-            
-            .search-container {
-                gap: 0.5rem;
             }
             
             .tags-container {
@@ -996,16 +1082,49 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-                <div class="filter-dropdown">
-                    <button id="filter-btn" class="filter-btn">
-                        <i class="fas fa-filter"></i> <span class="filter-text">Filter</span>
-                    </button>
-                    <div id="filter-menu" class="filter-menu">
-                        <button class="filter-option" data-filter="all">All Colleges</button>
-                        <button class="filter-option" data-filter="university">Universities</button>
-                        <button class="filter-option" data-filter="college">Colleges</button>
-                        <button class="filter-option" data-filter="institute">Institutes</button>
-                        <button class="filter-option" data-filter="school">Schools</button>
+                <div class="filters-container">
+                    <div class="filter-dropdown">
+                        <button id="type-filter-btn" class="filter-btn">
+                            <i class="fas fa-graduation-cap"></i> <span class="filter-text">Type</span>
+                        </button>
+                        <div id="type-filter-menu" class="filter-menu">
+                            <div class="filter-section">
+                                <div class="filter-section-title">Institution Type</div>
+                                <button class="filter-option active" data-filter="all" data-type="type">All Types</button>
+                                <button class="filter-option" data-filter="university" data-type="type">Universities</button>
+                                <button class="filter-option" data-filter="college" data-type="type">Colleges</button>
+                                <button class="filter-option" data-filter="institute" data-type="type">Institutes</button>
+                                <button class="filter-option" data-filter="school" data-type="type">Schools</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-dropdown">
+                        <button id="city-filter-btn" class="filter-btn">
+                            <i class="fas fa-map-marker-alt"></i> <span class="filter-text">City</span>
+                        </button>
+                        <div id="city-filter-menu" class="filter-menu">
+                            <div class="filter-section">
+                                <div class="filter-section-title">Select City</div>
+                                <button class="filter-option active" data-filter="all" data-type="city">All Cities</button>
+                                <div id="city-options">
+                                    <!-- City options will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-dropdown">
+                        <button id="state-filter-btn" class="filter-btn">
+                            <i class="fas fa-map"></i> <span class="filter-text">State</span>
+                        </button>
+                        <div id="state-filter-menu" class="filter-menu">
+                            <div class="filter-section">
+                                <div class="filter-section-title">Select State</div>
+                                <button class="filter-option active" data-filter="all" data-type="state">All States</button>
+                                <div id="state-options">
+                                    <!-- State options will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1013,6 +1132,9 @@
                 <i class="fas fa-arrow-left"></i> <span class="home-text">Home</span>
             </a>
         </nav>
+        <div class="active-filters" id="active-filters">
+            <!-- Active filters will be displayed here -->
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -1054,9 +1176,15 @@
         // Global variables
         let allColleges = [];
         let filteredColleges = [];
-        let currentFilter = 'all';
+        let currentFilters = {
+            type: 'all',
+            city: 'all',
+            state: 'all'
+        };
         let activeCollege = null;
         let currentSearchQuery = '';
+        let availableCities = new Set();
+        let availableStates = new Set();
 
         // API endpoints
         const OVERPASS_API = 'https://overpass-api.de/api/interpreter';
@@ -1177,7 +1305,7 @@
 
                     // Extract location information
                     const city = tags['addr:city'] || tags.city || extractCityFromName(tags.name) || 'Unknown';
-                    const state = tags['addr:state'] || tags.state || 'Unknown';
+                    const state = tags['addr:state'] || tags.state || extractStateFromName(tags.name) || 'Unknown';
                     
                     return {
                         id: element.id,
@@ -1284,6 +1412,65 @@
             return null;
         }
 
+        // Extract state from college name (helper function)
+        function extractStateFromName(name) {
+            if (!name) return null;
+            
+            const indianStates = [
+                'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat',
+                'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh',
+                'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab',
+                'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand',
+                'West Bengal', 'Delhi', 'Jammu and Kashmir', 'Ladakh'
+            ];
+            
+            for (const state of indianStates) {
+                if (name.toLowerCase().includes(state.toLowerCase())) {
+                    return state;
+                }
+            }
+            return null;
+        }
+
+        // Update filter options based on available data
+        function updateFilterOptions() {
+            // Update city options
+            const cityOptionsContainer = document.getElementById('city-options');
+            if (cityOptionsContainer) {
+                cityOptionsContainer.innerHTML = '';
+                const sortedCities = Array.from(availableCities).sort();
+                sortedCities.forEach(city => {
+                    if (city !== 'Unknown') {
+                        const option = document.createElement('button');
+                        option.className = 'filter-option';
+                        option.dataset.filter = city.toLowerCase();
+                        option.dataset.type = 'city';
+                        option.textContent = city;
+                        option.addEventListener('click', () => handleFilter('city', city.toLowerCase()));
+                        cityOptionsContainer.appendChild(option);
+                    }
+                });
+            }
+
+            // Update state options
+            const stateOptionsContainer = document.getElementById('state-options');
+            if (stateOptionsContainer) {
+                stateOptionsContainer.innerHTML = '';
+                const sortedStates = Array.from(availableStates).sort();
+                sortedStates.forEach(state => {
+                    if (state !== 'Unknown') {
+                        const option = document.createElement('button');
+                        option.className = 'filter-option';
+                        option.dataset.filter = state.toLowerCase();
+                        option.dataset.type = 'state';
+                        option.textContent = state;
+                        option.addEventListener('click', () => handleFilter('state', state.toLowerCase()));
+                        stateOptionsContainer.appendChild(option);
+                    }
+                });
+            }
+        }
+
         // Main fetch function
         async function fetchColleges(query = '') {
             const listContainer = document.getElementById('college-list');
@@ -1346,29 +1533,25 @@
                     if (!seen.has(key)) {
                         seen.add(key);
                         uniqueColleges.push(college);
+                        
+                        // Add to available cities and states
+                        if (college.city !== 'Unknown') {
+                            availableCities.add(college.city);
+                        }
+                        if (college.state !== 'Unknown') {
+                            availableStates.add(college.state);
+                        }
                     }
                 }
                 
                 // Store all colleges
                 allColleges = uniqueColleges;
                 
-                // Apply filter if needed
-                if (currentFilter !== 'all') {
-                    filteredColleges = allColleges.filter(college => {
-                        if (currentFilter === 'university') {
-                            return college.amenity === 'university' || college.name.toLowerCase().includes('university');
-                        } else if (currentFilter === 'college') {
-                            return college.amenity === 'college' || college.name.toLowerCase().includes('college');
-                        } else if (currentFilter === 'institute') {
-                            return college.name.toLowerCase().includes('institute');
-                        } else if (currentFilter === 'school') {
-                            return college.amenity === 'school' || college.name.toLowerCase().includes('school');
-                        }
-                        return true;
-                    });
-                } else {
-                    filteredColleges = [...allColleges];
-                }
+                // Update filter options
+                updateFilterOptions();
+                
+                // Apply current filters
+                applyFilters();
                 
                 // Update count and render
                 countElement.textContent = `${filteredColleges.length} colleges found`;
@@ -1396,6 +1579,158 @@
                 `;
                 
                 countElement.textContent = '0 colleges found';
+            }
+        }
+
+        // Apply filters to college list
+        function applyFilters() {
+            filteredColleges = allColleges.filter(college => {
+                // Type filter
+                if (currentFilters.type !== 'all') {
+                    if (currentFilters.type === 'university') {
+                        if (!(college.amenity === 'university' || college.name.toLowerCase().includes('university'))) {
+                            return false;
+                        }
+                    } else if (currentFilters.type === 'college') {
+                        if (!(college.amenity === 'college' || college.name.toLowerCase().includes('college'))) {
+                            return false;
+                        }
+                    } else if (currentFilters.type === 'institute') {
+                        if (!college.name.toLowerCase().includes('institute')) {
+                            return false;
+                        }
+                    } else if (currentFilters.type === 'school') {
+                        if (!(college.amenity === 'school' || college.name.toLowerCase().includes('school'))) {
+                            return false;
+                        }
+                    }
+                }
+
+                // City filter
+                if (currentFilters.city !== 'all') {
+                    if (college.city.toLowerCase() !== currentFilters.city) {
+                        return false;
+                    }
+                }
+
+                // State filter
+                if (currentFilters.state !== 'all') {
+                    if (college.state.toLowerCase() !== currentFilters.state) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            updateActiveFiltersDisplay();
+        }
+
+        // Update active filters display
+        function updateActiveFiltersDisplay() {
+            const activeFiltersContainer = document.getElementById('active-filters');
+            if (!activeFiltersContainer) return;
+
+            activeFiltersContainer.innerHTML = '';
+
+            const activeFiltersList = [];
+
+            if (currentFilters.type !== 'all') {
+                activeFiltersList.push({
+                    type: 'type',
+                    value: currentFilters.type,
+                    label: currentFilters.type.charAt(0).toUpperCase() + currentFilters.type.slice(1)
+                });
+            }
+
+            if (currentFilters.city !== 'all') {
+                const cityLabel = Array.from(availableCities).find(city => 
+                    city.toLowerCase() === currentFilters.city
+                ) || currentFilters.city;
+                activeFiltersList.push({
+                    type: 'city',
+                    value: currentFilters.city,
+                    label: cityLabel
+                });
+            }
+
+            if (currentFilters.state !== 'all') {
+                const stateLabel = Array.from(availableStates).find(state => 
+                    state.toLowerCase() === currentFilters.state
+                ) || currentFilters.state;
+                activeFiltersList.push({
+                    type: 'state',
+                    value: currentFilters.state,
+                    label: stateLabel
+                });
+            }
+
+            activeFiltersList.forEach(filter => {
+                const filterTag = document.createElement('div');
+                filterTag.className = 'active-filter-tag';
+                filterTag.innerHTML = `
+                    <span>${filter.label}</span>
+                    <span class="remove-filter" onclick="removeFilter('${filter.type}')">×</span>
+                `;
+                activeFiltersContainer.appendChild(filterTag);
+            });
+
+            if (activeFiltersList.length > 0) {
+                const clearAllBtn = document.createElement('div');
+                clearAllBtn.className = 'active-filter-tag';
+                clearAllBtn.style.background = '#fee2e2';
+                clearAllBtn.style.color = '#b91c1c';
+                clearAllBtn.innerHTML = `
+                    <span>Clear All</span>
+                    <span class="remove-filter" onclick="clearAllFilters()">×</span>
+                `;
+                activeFiltersContainer.appendChild(clearAllBtn);
+            }
+        }
+
+        // Remove specific filter
+        function removeFilter(filterType) {
+            currentFilters[filterType] = 'all';
+            
+            // Update UI
+            document.querySelectorAll(`[data-type="${filterType}"]`).forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.filter === 'all') {
+                    option.classList.add('active');
+                }
+            });
+
+            applyFilters();
+            renderCollegeList();
+            updateCollegeCount();
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            currentFilters = {
+                type: 'all',
+                city: 'all',
+                state: 'all'
+            };
+
+            // Update UI
+            document.querySelectorAll('.filter-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.filter === 'all') {
+                    option.classList.add('active');
+                }
+            });
+
+            applyFilters();
+            renderCollegeList();
+            updateCollegeCount();
+        }
+
+        // Update college count
+        function updateCollegeCount() {
+            const countElement = document.getElementById('college-count');
+            if (countElement) {
+                countElement.textContent = `${filteredColleges.length} colleges found`;
             }
         }
 
@@ -1427,8 +1762,8 @@
                     <div class="no-selection">
                         <i class="fas fa-search"></i>
                         <p>No colleges found matching your criteria.</p>
-                        <button onclick="fetchColleges('')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
-                            <i class="fas fa-refresh"></i> Load All Colleges
+                        <button onclick="clearAllFilters()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
+                            <i class="fas fa-refresh"></i> Clear Filters
                         </button>
                     </div>
                 `;
@@ -1744,39 +2079,26 @@
         }
 
         // Filter functionality
-        function handleFilter(filterType) {
-            currentFilter = filterType.toLowerCase();
+        function handleFilter(filterType, filterValue) {
+            currentFilters[filterType] = filterValue;
             
-            // Apply filter to existing data
-            if (currentFilter === 'all') {
-                filteredColleges = [...allColleges];
-            } else {
-                filteredColleges = allColleges.filter(college => {
-                    if (currentFilter === 'university') {
-                        return college.amenity === 'university' || college.name.toLowerCase().includes('university');
-                    } else if (currentFilter === 'college') {
-                        return college.amenity === 'college' || college.name.toLowerCase().includes('college');
-                    } else if (currentFilter === 'institute') {
-                        return college.name.toLowerCase().includes('institute');
-                    } else if (currentFilter === 'school') {
-                        return college.amenity === 'school' || college.name.toLowerCase().includes('school');
-                    }
-                    return true;
-                });
-            }
-            
-            // Update count and render
-            const countElement = document.getElementById('college-count');
-            if (countElement) {
-                countElement.textContent = `${filteredColleges.length} colleges found`;
-            }
+            // Update UI
+            document.querySelectorAll(`[data-type="${filterType}"]`).forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.filter === filterValue) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Apply filters and update display
+            applyFilters();
             renderCollegeList();
+            updateCollegeCount();
             
             // Close filter menu
-            const filterMenu = document.getElementById('filter-menu');
-            if (filterMenu) {
-                filterMenu.classList.remove('active');
-            }
+            document.querySelectorAll('.filter-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
         }
 
         // Mobile toggle functionality
@@ -1827,18 +2149,35 @@
             }
             
             // Filter functionality
-            const filterBtn = document.getElementById('filter-btn');
-            const filterMenu = document.getElementById('filter-menu');
+            const filterBtns = ['type-filter-btn', 'city-filter-btn', 'state-filter-btn'];
+            const filterMenus = ['type-filter-menu', 'city-filter-menu', 'state-filter-menu'];
             
-            if (filterBtn && filterMenu) {
-                filterBtn.addEventListener('click', () => {
-                    filterMenu.classList.toggle('active');
-                });
-            }
+            filterBtns.forEach((btnId, index) => {
+                const btn = document.getElementById(btnId);
+                const menu = document.getElementById(filterMenus[index]);
+                
+                if (btn && menu) {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // Close other menus
+                        filterMenus.forEach((menuId, menuIndex) => {
+                            if (menuIndex !== index) {
+                                const otherMenu = document.getElementById(menuId);
+                                if (otherMenu) otherMenu.classList.remove('active');
+                            }
+                        });
+                        // Toggle current menu
+                        menu.classList.toggle('active');
+                    });
+                }
+            });
             
+            // Add event listeners for default filter options
             document.querySelectorAll('.filter-option').forEach(option => {
                 option.addEventListener('click', () => {
-                    handleFilter(option.dataset.filter);
+                    const filterType = option.dataset.type;
+                    const filterValue = option.dataset.filter;
+                    handleFilter(filterType, filterValue);
                 });
             });
             
@@ -1848,14 +2187,12 @@
                 mobileToggle.addEventListener('click', toggleMobileList);
             }
             
-            // Close filter menu when clicking outside
+            // Close filter menus when clicking outside
             document.addEventListener('click', (e) => {
-                const filterDropdown = document.querySelector('.filter-dropdown');
-                if (filterDropdown && !filterDropdown.contains(e.target)) {
-                    const filterMenu = document.getElementById('filter-menu');
-                    if (filterMenu) {
-                        filterMenu.classList.remove('active');
-                    }
+                if (!e.target.closest('.filter-dropdown')) {
+                    document.querySelectorAll('.filter-menu').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
                 }
             });
             
@@ -1906,6 +2243,11 @@
                 createParticles();
             }, 500);
         });
+
+        // Make functions globally accessible for onclick handlers
+        window.removeFilter = removeFilter;
+        window.clearAllFilters = clearAllFilters;
+        window.fetchColleges = fetchColleges;
     </script>
 </body>
 </html>
