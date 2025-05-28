@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Career Crafters - Find Colleges in India</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -17,6 +17,8 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Particle Background */
@@ -62,24 +64,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            min-height: 70px;
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+            min-height: clamp(60px, 8vw, 70px);
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-size: clamp(1rem, 3.5vw, 1.8rem);
             font-weight: bold;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            flex-shrink: 0;
         }
 
         .nav-brand i {
             margin-right: 0.5rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.2rem, 4vw, 2rem);
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -87,17 +92,19 @@
 
         .search-container {
             display: flex;
-            gap: 1rem;
+            gap: clamp(0.5rem, 2vw, 1rem);
             align-items: center;
             flex: 1;
-            max-width: 600px;
-            margin: 0 2rem;
+            max-width: min(600px, 90vw);
+            margin: 0 clamp(0.5rem, 3vw, 2rem);
+            min-width: 0;
         }
 
         .search-bar {
             display: flex;
             flex: 1;
             position: relative;
+            min-width: 0;
         }
 
         .search-input {
@@ -105,9 +112,10 @@
             padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1rem);
             border: 2px solid #e2e8f0;
             border-radius: 25px 0 0 25px;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
             transition: all 0.3s ease;
             outline: none;
+            min-width: 0;
         }
 
         .search-input:focus {
@@ -119,11 +127,12 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
             border-radius: 0 25px 25px 0;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            flex-shrink: 0;
         }
 
         .search-btn:hover {
@@ -133,17 +142,19 @@
 
         .filter-dropdown {
             position: relative;
+            flex-shrink: 0;
         }
 
         .filter-btn {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            white-space: nowrap;
         }
 
         .filter-btn:hover {
@@ -177,6 +188,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .filter-option:hover {
@@ -186,12 +198,14 @@
         .back-home {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .back-home:hover {
@@ -202,24 +216,24 @@
         /* Main Content */
         .main-content {
             display: flex;
-            padding-top: 90px;
+            padding-top: clamp(80px, 12vw, 90px);
             min-height: 100vh;
-            gap: 1rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            gap: clamp(0.5rem, 2vw, 1rem);
+            padding-left: clamp(0.5rem, 2vw, 1rem);
+            padding-right: clamp(0.5rem, 2vw, 1rem);
             position: relative;
             z-index: 2;
         }
 
         /* College List */
         .college-list-container {
-            width: 35%;
+            width: clamp(300px, 35%, 400px);
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
+            padding: clamp(1rem, 3vw, 1.5rem);
             backdrop-filter: blur(10px);
-            max-height: calc(100vh - 110px);
+            max-height: calc(100vh - clamp(90px, 12vw, 110px));
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -232,7 +246,7 @@
         }
 
         .list-title {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
             font-weight: 700;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
@@ -242,16 +256,17 @@
 
         .college-count {
             color: #64748b;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
         .api-status {
-            font-size: 0.8rem;
+            font-size: clamp(0.75rem, 2vw, 0.8rem);
             color: #059669;
             margin-top: 0.25rem;
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            flex-wrap: wrap;
         }
 
         .college-list {
@@ -279,7 +294,7 @@
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             border: 1px solid #e2e8f0;
             border-radius: 15px;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             margin-bottom: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -322,22 +337,24 @@
         }
 
         .college-name {
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.85rem, 2.8vw, 1.1rem);
             font-weight: 600;
             margin-bottom: 0.25rem;
             line-height: 1.3;
+            word-wrap: break-word;
         }
 
         .college-location {
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: clamp(0.75rem, 2.3vw, 0.9rem);
             opacity: 0.8;
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            flex-wrap: wrap;
         }
 
         .college-type {
-            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             background: rgba(99, 102, 241, 0.1);
             color: #6366f1;
             padding: 0.2rem 0.5rem;
@@ -353,13 +370,13 @@
 
         /* Details Container */
         .details-container {
-            width: 65%;
+            flex: 1;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            padding: clamp(1rem, 3vw, 2rem);
             backdrop-filter: blur(10px);
-            max-height: calc(100vh - 110px);
+            max-height: calc(100vh - clamp(90px, 12vw, 110px));
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #6366f1 #f1f5f9;
@@ -382,15 +399,16 @@
         .college-header {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
+            gap: clamp(1rem, 3vw, 1.5rem);
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
             border-bottom: 2px solid #e2e8f0;
+            flex-wrap: wrap;
         }
 
         .college-image {
-            width: 150px;
-            height: 100px;
+            width: clamp(120px, 25vw, 150px);
+            height: clamp(80px, 16vw, 100px);
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -399,21 +417,23 @@
 
         .college-info {
             flex: 1;
+            min-width: 0;
         }
 
         .college-title {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.3rem, 4.5vw, 2rem);
             font-weight: 700;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         .college-details {
             color: #64748b;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
             line-height: 1.6;
         }
 
@@ -422,68 +442,72 @@
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .detail-icon {
             color: #6366f1;
             width: 16px;
+            flex-shrink: 0;
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
         }
 
         .section-title {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
             font-weight: 600;
             color: #1e293b;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .section-icon {
             color: #6366f1;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            flex-shrink: 0;
         }
 
         .section-content {
             color: #64748b;
             line-height: 1.7;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 30vw, 200px), 1fr));
+            gap: clamp(0.75rem, 2vw, 1rem);
             margin-bottom: 1.5rem;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 10px;
             text-align: center;
             border: 1px solid #e2e8f0;
         }
 
         .stat-value {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
             font-weight: 700;
             color: #6366f1;
             margin-bottom: 0.25rem;
         }
 
         .stat-label {
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: clamp(0.75rem, 2.3vw, 0.9rem);
             color: #64748b;
         }
 
         .review-card {
             background: #f8fafc;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 10px;
             margin-bottom: 1rem;
             border-left: 4px solid #6366f1;
@@ -494,43 +518,47 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .reviewer-name {
             font-weight: 600;
             color: #1e293b;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
         .rating {
             color: #fbbf24;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
         .review-text {
             color: #64748b;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
             line-height: 1.6;
         }
 
         .no-selection {
             text-align: center;
-            padding: 3rem;
+            padding: clamp(2rem, 6vw, 3rem);
             color: #64748b;
         }
 
         .no-selection i {
-            font-size: 4rem;
+            font-size: clamp(3rem, 8vw, 4rem);
             color: #e2e8f0;
             margin-bottom: 1rem;
         }
 
         .loading {
             text-align: center;
-            padding: 2rem;
+            padding: clamp(1.5rem, 4vw, 2rem);
             color: #64748b;
         }
 
         .loading i {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             color: #6366f1;
             animation: spin 1s linear infinite;
         }
@@ -544,29 +572,29 @@
         .error-message {
             background: #fee2e2;
             color: #b91c1c;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 10px;
             margin-bottom: 1rem;
             border-left: 4px solid #b91c1c;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.3vw, 0.9rem);
         }
 
         /* Success message */
         .success-message {
             background: #d1fae5;
             color: #065f46;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 10px;
             margin-bottom: 1rem;
             border-left: 4px solid #065f46;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.3vw, 0.9rem);
         }
 
         /* Tags container */
         .tags-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: clamp(0.25rem, 1vw, 0.5rem);
             margin-top: 0.5rem;
         }
 
@@ -575,15 +603,16 @@
             color: #6366f1;
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2.2vw, 0.85rem);
             font-weight: 500;
             border: 1px solid #c7d2fe;
+            word-break: break-word;
         }
 
         /* Map container */
         .map-container {
             width: 100%;
-            height: 300px;
+            height: clamp(200px, 40vw, 300px);
             border-radius: 15px;
             margin-top: 1rem;
             border: 1px solid #e2e8f0;
@@ -594,10 +623,11 @@
             flex-direction: column;
             text-align: center;
             color: #64748b;
+            padding: 1rem;
         }
 
         .map-container i {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             color: #6366f1;
             margin-bottom: 1rem;
         }
@@ -614,52 +644,82 @@
             font-weight: 600;
             margin-bottom: 1rem;
             width: 100%;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        /* Enhanced Responsive Design */
+        
+        /* Large tablets and small desktops */
+        @media (max-width: 1200px) {
             .navbar {
                 padding: 1rem 1.5rem;
             }
             
             .search-container {
                 margin: 0 1rem;
+                max-width: 500px;
             }
             
             .college-list-container {
-                width: 40%;
+                width: 38%;
             }
             
-            .details-container {
-                width: 60%;
+            .main-content {
+                gap: 0.75rem;
             }
         }
 
+        /* Tablets */
+        @media (max-width: 1024px) {
+            .college-list-container {
+                width: 40%;
+                min-width: 280px;
+            }
+            
+            .search-container {
+                margin: 0 0.75rem;
+                max-width: 450px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+        }
+
+        /* Small tablets and large phones */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
                 padding: 1rem;
+                align-items: stretch;
+            }
+            
+            .nav-brand {
+                align-self: center;
             }
             
             .search-container {
                 width: 100%;
                 margin: 0;
+                max-width: none;
+                order: 1;
             }
             
             .back-home {
-                align-self: flex-start;
+                align-self: center;
+                order: 2;
             }
             
             .main-content {
                 flex-direction: column;
-                padding-top: 140px;
+                padding-top: clamp(140px, 20vw, 160px);
                 gap: 1rem;
             }
             
             .college-list-container {
                 width: 100%;
-                max-height: 300px;
+                max-height: clamp(250px, 40vh, 350px);
                 order: 2;
             }
             
@@ -680,33 +740,38 @@
             .college-header {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
             }
             
             .college-image {
                 width: 100%;
                 max-width: 300px;
-                height: 200px;
+                height: clamp(150px, 25vw, 200px);
             }
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .map-container {
-                height: 250px;
+            .filter-menu {
+                right: auto;
+                left: 0;
+                min-width: 180px;
             }
         }
 
+        /* Mobile phones */
         @media (max-width: 480px) {
             .main-content {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
-                padding-top: 160px;
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                padding-top: clamp(160px, 25vw, 180px);
             }
             
             .college-list-container,
             .details-container {
                 padding: 1rem;
+                border-radius: 15px;
             }
             
             .college-header {
@@ -715,11 +780,12 @@
             
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
             }
             
             .search-container {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0.75rem;
             }
             
             .search-bar {
@@ -728,15 +794,86 @@
             
             .search-input {
                 border-radius: 25px;
+                padding: 0.75rem 1rem;
             }
             
             .search-btn {
                 border-radius: 25px;
                 width: 100%;
+                padding: 0.75rem;
             }
 
-            .map-container {
-                height: 200px;
+            .filter-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .navbar {
+                padding: 0.75rem;
+            }
+
+            .college-list-container {
+                max-height: 40vh;
+            }
+
+            .detail-item {
+                font-size: 0.85rem;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 360px) {
+            .main-content {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            .college-list-container,
+            .details-container {
+                padding: 0.75rem;
+            }
+            
+            .navbar {
+                padding: 0.5rem;
+            }
+            
+            .search-container {
+                gap: 0.5rem;
+            }
+            
+            .tags-container {
+                gap: 0.25rem;
+            }
+            
+            .tag {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main-content {
+                padding-top: 80px;
+            }
+            
+            .navbar {
+                padding: 0.5rem 1rem;
+                min-height: 60px;
+            }
+            
+            .college-list-container {
+                max-height: calc(100vh - 90px);
+            }
+            
+            .details-container {
+                max-height: calc(100vh - 90px);
             }
         }
 
@@ -752,6 +889,25 @@
             .back-home:hover {
                 transform: none;
             }
+            
+            .college-item {
+                padding: 1rem;
+            }
+            
+            .search-btn,
+            .filter-btn,
+            .back-home {
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .college-image {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
         }
 
         /* Accessibility improvements */
@@ -764,6 +920,60 @@
             
             .particle {
                 animation: none;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            }
+            
+            .header {
+                background: rgba(30, 41, 59, 0.95);
+            }
+            
+            .college-list-container,
+            .details-container {
+                background: rgba(30, 41, 59, 0.95);
+                color: #e2e8f0;
+            }
+            
+            .college-item {
+                background: linear-gradient(135deg, #334155, #475569);
+                border-color: #475569;
+                color: #e2e8f0;
+            }
+            
+            .section-content,
+            .college-details,
+            .college-count {
+                color: #cbd5e1;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .header,
+            .mobile-toggle,
+            .particles {
+                display: none;
+            }
+            
+            .main-content {
+                padding-top: 0;
+                flex-direction: column;
+            }
+            
+            .college-list-container {
+                width: 100%;
+                max-height: none;
+                page-break-inside: avoid;
+            }
+            
+            .details-container {
+                width: 100%;
+                max-height: none;
             }
         }
     </style>
@@ -788,7 +998,7 @@
                 </div>
                 <div class="filter-dropdown">
                     <button id="filter-btn" class="filter-btn">
-                        <i class="fas fa-filter"></i> Filter
+                        <i class="fas fa-filter"></i> <span class="filter-text">Filter</span>
                     </button>
                     <div id="filter-menu" class="filter-menu">
                         <button class="filter-option" data-filter="all">All Colleges</button>
@@ -800,7 +1010,7 @@
                 </div>
             </div>
             <a href="index.html" class="back-home">
-                <i class="fas fa-arrow-left"></i> Home
+                <i class="fas fa-arrow-left"></i> <span class="home-text">Home</span>
             </a>
         </nav>
     </header>
@@ -868,10 +1078,13 @@
             'science': 'Arts & Science'
         };
 
-        // Create particles
+        // Create particles with responsive count
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 768 ? 25 : 50;
+            const particleCount = window.innerWidth < 480 ? 15 : window.innerWidth < 768 ? 25 : 50;
+            
+            // Clear existing particles
+            particlesContainer.innerHTML = '';
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -886,11 +1099,13 @@
         // Update API status
         function updateApiStatus(message, isError = false) {
             const statusElement = document.getElementById('api-status');
-            statusElement.innerHTML = `
-                <i class="fas fa-${isError ? 'exclamation-triangle' : 'wifi'}"></i>
-                <span>${message}</span>
-            `;
-            statusElement.style.color = isError ? '#dc2626' : '#059669';
+            if (statusElement) {
+                statusElement.innerHTML = `
+                    <i class="fas fa-${isError ? 'exclamation-triangle' : 'wifi'}"></i>
+                    <span>${message}</span>
+                `;
+                statusElement.style.color = isError ? '#dc2626' : '#059669';
+            }
         }
 
         // Fetch colleges from Overpass API (OpenStreetMap)
@@ -1074,6 +1289,8 @@
             const listContainer = document.getElementById('college-list');
             const countElement = document.getElementById('college-count');
             
+            if (!listContainer || !countElement) return;
+            
             // Show loading state
             listContainer.innerHTML = `
                 <div class="loading">
@@ -1172,7 +1389,7 @@
                     <div class="error-message">
                         <p><strong>API Error:</strong> Unable to fetch college data from external APIs.</p>
                         <p>Please check your internet connection and try again.</p>
-                        <button onclick="fetchColleges('${currentSearchQuery}')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        <button onclick="fetchColleges('${currentSearchQuery}')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
                             <i class="fas fa-refresh"></i> Retry
                         </button>
                     </div>
@@ -1185,6 +1402,8 @@
         // Show message helper
         function showMessage(message, type = 'success') {
             const listContainer = document.getElementById('college-list');
+            if (!listContainer) return;
+            
             const messageDiv = document.createElement('div');
             messageDiv.className = `${type}-message`;
             messageDiv.innerHTML = `<p>${message}</p>`;
@@ -1192,20 +1411,23 @@
             listContainer.insertAdjacentElement('beforebegin', messageDiv);
             
             setTimeout(() => {
-                messageDiv.remove();
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
             }, 5000);
         }
 
         // Render college list
         function renderCollegeList() {
             const listContainer = document.getElementById('college-list');
+            if (!listContainer) return;
             
             if (filteredColleges.length === 0) {
                 listContainer.innerHTML = `
                     <div class="no-selection">
                         <i class="fas fa-search"></i>
                         <p>No colleges found matching your criteria.</p>
-                        <button onclick="fetchColleges('')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        <button onclick="fetchColleges('')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
                             <i class="fas fa-refresh"></i> Load All Colleges
                         </button>
                     </div>
@@ -1241,8 +1463,12 @@
                     
                     // Hide mobile list on selection
                     if (window.innerWidth <= 768) {
-                        document.getElementById('college-list-container').classList.add('mobile-hidden');
-                        document.getElementById('mobile-toggle').innerHTML = '<i class="fas fa-list"></i> Show College List';
+                        const listContainer = document.getElementById('college-list-container');
+                        const toggleBtn = document.getElementById('mobile-toggle');
+                        if (listContainer && toggleBtn) {
+                            listContainer.classList.add('mobile-hidden');
+                            toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
+                        }
                     }
                 });
                 
@@ -1253,6 +1479,8 @@
         // Display college details
         function displayCollegeDetails(college) {
             const detailsContainer = document.getElementById('college-details');
+            if (!detailsContainer) return;
+            
             activeCollege = college;
             
             // Show loading state
@@ -1325,7 +1553,7 @@
                                 ${college.website ? `
                                 <div class="detail-item">
                                     <i class="fas fa-globe detail-icon"></i>
-                                    <a href="${college.website}" target="_blank" style="color: #6366f1;">${college.website}</a>
+                                    <a href="${college.website}" target="_blank" style="color: #6366f1; word-break: break-all;">${college.website}</a>
                                 </div>
                                 ` : ''}
                                 ${college.phone ? `
@@ -1508,8 +1736,11 @@
 
         // Search functionality
         function handleSearch() {
-            const searchTerm = document.getElementById('search-input').value.trim();
-            fetchColleges(searchTerm);
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                const searchTerm = searchInput.value.trim();
+                fetchColleges(searchTerm);
+            }
         }
 
         // Filter functionality
@@ -1535,11 +1766,17 @@
             }
             
             // Update count and render
-            document.getElementById('college-count').textContent = `${filteredColleges.length} colleges found`;
+            const countElement = document.getElementById('college-count');
+            if (countElement) {
+                countElement.textContent = `${filteredColleges.length} colleges found`;
+            }
             renderCollegeList();
             
             // Close filter menu
-            document.getElementById('filter-menu').classList.remove('active');
+            const filterMenu = document.getElementById('filter-menu');
+            if (filterMenu) {
+                filterMenu.classList.remove('active');
+            }
         }
 
         // Mobile toggle functionality
@@ -1547,12 +1784,14 @@
             const listContainer = document.getElementById('college-list-container');
             const toggleBtn = document.getElementById('mobile-toggle');
             
-            if (listContainer.classList.contains('mobile-hidden')) {
-                listContainer.classList.remove('mobile-hidden');
-                toggleBtn.innerHTML = '<i class="fas fa-times"></i> Hide College List';
-            } else {
-                listContainer.classList.add('mobile-hidden');
-                toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
+            if (listContainer && toggleBtn) {
+                if (listContainer.classList.contains('mobile-hidden')) {
+                    listContainer.classList.remove('mobile-hidden');
+                    toggleBtn.innerHTML = '<i class="fas fa-times"></i> Hide College List';
+                } else {
+                    listContainer.classList.add('mobile-hidden');
+                    toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
+                }
             }
         }
 
@@ -1562,27 +1801,40 @@
             fetchColleges(); // Auto-fetch colleges on page load
             
             // Search functionality
-            document.getElementById('search-btn').addEventListener('click', handleSearch);
-            document.getElementById('search-input').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') handleSearch();
-            });
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search-input');
             
-            // Real-time search with debounce
-            let searchTimeout;
-            document.getElementById('search-input').addEventListener('input', () => {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    const searchTerm = document.getElementById('search-input').value.trim();
-                    if (searchTerm.length > 2 || searchTerm.length === 0) {
-                        handleSearch();
-                    }
-                }, 1000);
-            });
+            if (searchBtn) {
+                searchBtn.addEventListener('click', handleSearch);
+            }
+            
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') handleSearch();
+                });
+                
+                // Real-time search with debounce
+                let searchTimeout;
+                searchInput.addEventListener('input', () => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        const searchTerm = searchInput.value.trim();
+                        if (searchTerm.length > 2 || searchTerm.length === 0) {
+                            handleSearch();
+                        }
+                    }, 1000);
+                });
+            }
             
             // Filter functionality
-            document.getElementById('filter-btn').addEventListener('click', () => {
-                document.getElementById('filter-menu').classList.toggle('active');
-            });
+            const filterBtn = document.getElementById('filter-btn');
+            const filterMenu = document.getElementById('filter-menu');
+            
+            if (filterBtn && filterMenu) {
+                filterBtn.addEventListener('click', () => {
+                    filterMenu.classList.toggle('active');
+                });
+            }
             
             document.querySelectorAll('.filter-option').forEach(option => {
                 option.addEventListener('click', () => {
@@ -1591,21 +1843,35 @@
             });
             
             // Mobile toggle
-            document.getElementById('mobile-toggle').addEventListener('click', toggleMobileList);
+            const mobileToggle = document.getElementById('mobile-toggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleMobileList);
+            }
             
             // Close filter menu when clicking outside
             document.addEventListener('click', (e) => {
                 const filterDropdown = document.querySelector('.filter-dropdown');
-                if (!filterDropdown.contains(e.target)) {
-                    document.getElementById('filter-menu').classList.remove('active');
+                if (filterDropdown && !filterDropdown.contains(e.target)) {
+                    const filterMenu = document.getElementById('filter-menu');
+                    if (filterMenu) {
+                        filterMenu.classList.remove('active');
+                    }
                 }
             });
             
             // Handle window resize
             window.addEventListener('resize', () => {
+                // Recreate particles on resize
+                createParticles();
+                
+                // Reset mobile layout on desktop
                 if (window.innerWidth > 768) {
-                    document.getElementById('college-list-container').classList.remove('mobile-hidden');
-                    document.getElementById('mobile-toggle').innerHTML = '<i class="fas fa-list"></i> Show College List';
+                    const listContainer = document.getElementById('college-list-container');
+                    const toggleBtn = document.getElementById('mobile-toggle');
+                    if (listContainer && toggleBtn) {
+                        listContainer.classList.remove('mobile-hidden');
+                        toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
+                    }
                 }
             });
         });
@@ -1613,12 +1879,14 @@
         // Scroll effects
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 40px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 4px 40px rgba(0, 0, 0, 0.15)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+                }
             }
         });
 
@@ -1631,6 +1899,13 @@
             }
             lastTouchEnd = now;
         }, false);
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                createParticles();
+            }, 500);
+        });
     </script>
 </body>
 </html>
