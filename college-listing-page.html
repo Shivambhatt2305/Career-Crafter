@@ -66,25 +66,24 @@
             align-items: center;
             padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
             min-height: clamp(60px, 8vw, 70px);
+            gap: clamp(0.5rem, 2vw, 1rem);
             flex-wrap: wrap;
-            gap: 0.5rem;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            font-size: clamp(1rem, 3.5vw, 1.8rem);
+            font-size: clamp(1rem, 3vw, 1.6rem);
             font-weight: bold;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             flex-shrink: 0;
         }
 
         .nav-brand i {
             margin-right: 0.5rem;
-            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -92,11 +91,10 @@
 
         .search-container {
             display: flex;
-            gap: clamp(0.5rem, 2vw, 1rem);
+            gap: clamp(0.5rem, 1.5vw, 0.75rem);
             align-items: center;
             flex: 1;
             max-width: min(600px, 90vw);
-            margin: 0 clamp(0.5rem, 3vw, 2rem);
             min-width: 0;
         }
 
@@ -112,7 +110,7 @@
             padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1rem);
             border: 2px solid #e2e8f0;
             border-radius: 25px 0 0 25px;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.95rem);
             transition: all 0.3s ease;
             outline: none;
             min-width: 0;
@@ -127,12 +125,15 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 0 25px 25px 0;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
-            flex-shrink: 0;
+            font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
         }
 
         .search-btn:hover {
@@ -149,12 +150,14 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
-            white-space: nowrap;
+            font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .filter-btn:hover {
@@ -168,8 +171,8 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 1rem;
-            min-width: 200px;
+            padding: 0.75rem;
+            min-width: 180px;
             display: none;
             z-index: 1001;
         }
@@ -181,31 +184,34 @@
         .filter-option {
             display: block;
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.5rem 0.75rem;
             border: none;
             background: none;
             text-align: left;
             cursor: pointer;
             border-radius: 5px;
             transition: background 0.3s ease;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         }
 
-        .filter-option:hover {
+        .filter-option:hover,
+        .filter-option:focus {
             background: #f1f5f9;
+            outline: none;
         }
 
         .back-home {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
-            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem);
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
-            white-space: nowrap;
-            flex-shrink: 0;
+            font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .back-home:hover {
@@ -216,24 +222,24 @@
         /* Main Content */
         .main-content {
             display: flex;
-            padding-top: clamp(80px, 12vw, 90px);
+            padding-top: clamp(80px, 12vw, 100px);
             min-height: 100vh;
-            gap: clamp(0.5rem, 2vw, 1rem);
-            padding-left: clamp(0.5rem, 2vw, 1rem);
-            padding-right: clamp(0.5rem, 2vw, 1rem);
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+            padding-left: clamp(0.5rem, 1.5vw, 1rem);
+            padding-right: clamp(0.5rem, 1.5vw, 1rem);
             position: relative;
             z-index: 2;
         }
 
         /* College List */
         .college-list-container {
-            width: clamp(300px, 35%, 400px);
+            width: clamp(280px, 35%, 420px);
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: clamp(1rem, 3vw, 1.5rem);
+            padding: clamp(1rem, 2.5vw, 1.5rem);
             backdrop-filter: blur(10px);
-            max-height: calc(100vh - clamp(90px, 12vw, 110px));
+            max-height: calc(100vh - clamp(100px, 12vw, 120px));
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -246,7 +252,7 @@
         }
 
         .list-title {
-            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+            font-size: clamp(1rem, 3vw, 1.4rem);
             font-weight: 700;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
@@ -256,11 +262,11 @@
 
         .college-count {
             color: #64748b;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         }
 
         .api-status {
-            font-size: clamp(0.75rem, 2vw, 0.8rem);
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             color: #059669;
             margin-top: 0.25rem;
             display: flex;
@@ -294,7 +300,7 @@
             background: linear-gradient(135deg, #ffffff, #f8fafc);
             border: 1px solid #e2e8f0;
             border-radius: 15px;
-            padding: clamp(0.75rem, 2.5vw, 1rem);
+            padding: clamp(0.75rem, 2vw, 1rem);
             margin-bottom: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -314,13 +320,16 @@
             transition: transform 0.3s ease;
         }
 
-        .college-item:hover {
+        .college-item:hover,
+        .college-item:focus {
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+            outline: none;
         }
 
-        .college-item:hover::before {
+        .college-item:hover::before,
+        .college-item:focus::before {
             transform: scaleY(1);
         }
 
@@ -337,7 +346,7 @@
         }
 
         .college-name {
-            font-size: clamp(0.85rem, 2.8vw, 1.1rem);
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
             font-weight: 600;
             margin-bottom: 0.25rem;
             line-height: 1.3;
@@ -345,7 +354,7 @@
         }
 
         .college-location {
-            font-size: clamp(0.75rem, 2.3vw, 0.9rem);
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             opacity: 0.8;
             display: flex;
             align-items: center;
@@ -354,7 +363,7 @@
         }
 
         .college-type {
-            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
             background: rgba(99, 102, 241, 0.1);
             color: #6366f1;
             padding: 0.2rem 0.5rem;
@@ -374,9 +383,9 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: clamp(1rem, 3vw, 2rem);
+            padding: clamp(1rem, 2.5vw, 1.5rem);
             backdrop-filter: blur(10px);
-            max-height: calc(100vh - clamp(90px, 12vw, 110px));
+            max-height: calc(100vh - clamp(100px, 12vw, 120px));
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #6366f1 #f1f5f9;
@@ -399,16 +408,16 @@
         .college-header {
             display: flex;
             align-items: flex-start;
-            gap: clamp(1rem, 3vw, 1.5rem);
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
+            gap: clamp(0.75rem, 2.5vw, 1rem);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
             border-bottom: 2px solid #e2e8f0;
             flex-wrap: wrap;
         }
 
         .college-image {
-            width: clamp(120px, 25vw, 150px);
-            height: clamp(80px, 16vw, 100px);
+            width: clamp(100px, 20vw, 140px);
+            height: clamp(70px, 14vw, 90px);
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -421,7 +430,7 @@
         }
 
         .college-title {
-            font-size: clamp(1.3rem, 4.5vw, 2rem);
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
             font-weight: 700;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
@@ -433,7 +442,7 @@
 
         .college-details {
             color: #64748b;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
             line-height: 1.6;
         }
 
@@ -452,14 +461,14 @@
         }
 
         .section {
-            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
         }
 
         .section-title {
-            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+            font-size: clamp(1rem, 3vw, 1.3rem);
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -468,48 +477,48 @@
 
         .section-icon {
             color: #6366f1;
-            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             flex-shrink: 0;
         }
 
         .section-content {
             color: #64748b;
             line-height: 1.7;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 30vw, 200px), 1fr));
-            gap: clamp(0.75rem, 2vw, 1rem);
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 28vw, 180px), 1fr));
+            gap: clamp(0.5rem, 1.5vw, 0.75rem);
+            margin-bottom: 1rem;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            padding: clamp(0.75rem, 2.5vw, 1rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem);
             border-radius: 10px;
             text-align: center;
             border: 1px solid #e2e8f0;
         }
 
         .stat-value {
-            font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+            font-size: clamp(1rem, 3vw, 1.3rem);
             font-weight: 700;
             color: #6366f1;
             margin-bottom: 0.25rem;
         }
 
         .stat-label {
-            font-size: clamp(0.75rem, 2.3vw, 0.9rem);
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             color: #64748b;
         }
 
         .review-card {
             background: #f8fafc;
-            padding: clamp(0.75rem, 2.5vw, 1rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem);
             border-radius: 10px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border-left: 4px solid #6366f1;
         }
 
@@ -519,46 +528,46 @@
             align-items: center;
             margin-bottom: 0.5rem;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.25rem;
         }
 
         .reviewer-name {
             font-weight: 600;
             color: #1e293b;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         }
 
         .rating {
             color: #fbbf24;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
         }
 
         .review-text {
             color: #64748b;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
             line-height: 1.6;
         }
 
         .no-selection {
             text-align: center;
-            padding: clamp(2rem, 6vw, 3rem);
+            padding: clamp(1.5rem, 5vw, 2.5rem);
             color: #64748b;
         }
 
         .no-selection i {
-            font-size: clamp(3rem, 8vw, 4rem);
+            font-size: clamp(2.5rem, 7vw, 3.5rem);
             color: #e2e8f0;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .loading {
             text-align: center;
-            padding: clamp(1.5rem, 4vw, 2rem);
+            padding: clamp(1rem, 3vw, 1.5rem);
             color: #64748b;
         }
 
         .loading i {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
             color: #6366f1;
             animation: spin 1s linear infinite;
         }
@@ -568,29 +577,28 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Error message */
+        /* Error and Success Messages */
         .error-message {
             background: #fee2e2;
             color: #b91c1c;
-            padding: clamp(0.75rem, 2.5vw, 1rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem);
             border-radius: 10px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border-left: 4px solid #b91c1c;
-            font-size: clamp(0.85rem, 2.3vw, 0.9rem);
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
         }
 
-        /* Success message */
         .success-message {
             background: #d1fae5;
             color: #065f46;
-            padding: clamp(0.75rem, 2.5vw, 1rem);
+            padding: clamp(0.5rem, 2vw, 0.75rem);
             border-radius: 10px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border-left: 4px solid #065f46;
-            font-size: clamp(0.85rem, 2.3vw, 0.9rem);
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
         }
 
-        /* Tags container */
+        /* Tags Container */
         .tags-container {
             display: flex;
             flex-wrap: wrap;
@@ -601,20 +609,20 @@
         .tag {
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
             color: #6366f1;
-            padding: 0.25rem 0.75rem;
+            padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 1.5vw, 0.75rem);
             border-radius: 15px;
-            font-size: clamp(0.75rem, 2.2vw, 0.85rem);
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             font-weight: 500;
             border: 1px solid #c7d2fe;
             word-break: break-word;
         }
 
-        /* Map container */
+        /* Map Container */
         .map-container {
             width: 100%;
-            height: clamp(200px, 40vw, 300px);
+            height: clamp(180px, 35vh, 280px);
             border-radius: 15px;
-            margin-top: 1rem;
+            margin-top: 0.75rem;
             border: 1px solid #e2e8f0;
             background: #f8fafc;
             display: flex;
@@ -623,13 +631,13 @@
             flex-direction: column;
             text-align: center;
             color: #64748b;
-            padding: 1rem;
+            padding: clamp(0.75rem, 2vw, 1rem);
         }
 
         .map-container i {
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: #6366f1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Mobile Toggle */
@@ -638,32 +646,49 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
+            padding: clamp(0.5rem, 2vw, 0.75rem);
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             width: 100%;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         /* Enhanced Responsive Design */
-        
+
+        /* Ultra-wide screens */
+        @media (min-width: 1920px) {
+            .navbar {
+                padding: 1rem 3rem;
+            }
+            .college-list-container {
+                width: 30%;
+                max-width: 500px;
+            }
+            .college-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Large tablets and small desktops */
         @media (max-width: 1200px) {
             .navbar {
-                padding: 1rem 1.5rem;
+                padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
             }
-            
             .search-container {
-                margin: 0 1rem;
                 max-width: 500px;
             }
-            
             .college-list-container {
-                width: 38%;
+                width: clamp(280px, 38%, 380px);
             }
-            
             .main-content {
                 gap: 0.75rem;
             }
@@ -672,17 +697,17 @@
         /* Tablets */
         @media (max-width: 1024px) {
             .college-list-container {
-                width: 40%;
-                min-width: 280px;
+                width: clamp(280px, 45%, 360px);
             }
-            
             .search-container {
-                margin: 0 0.75rem;
                 max-width: 450px;
             }
-            
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            .main-content {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
             }
         }
 
@@ -690,236 +715,224 @@
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
                 align-items: stretch;
+                gap: 0.75rem;
+                padding: clamp(0.75rem, 2vw, 1rem);
             }
-            
             .nav-brand {
-                align-self: center;
-            }
-            
-            .search-container {
-                width: 100%;
-                margin: 0;
-                max-width: none;
+                align-self: flex-start;
                 order: 1;
             }
-            
-            .back-home {
-                align-self: center;
+            .search-container {
+                width: 100%;
+                max-width: none;
                 order: 2;
+                flex-direction: row;
+                gap: 0.5rem;
             }
-            
+            .search-bar {
+                flex: 1;
+            }
+            .filter-dropdown {
+                flex: 0 0 auto;
+            }
+            .back-home {
+                align-self: flex-start;
+                order: 3;
+            }
             .main-content {
                 flex-direction: column;
                 padding-top: clamp(140px, 20vw, 160px);
-                gap: 1rem;
+                gap: 0.75rem;
             }
-            
             .college-list-container {
                 width: 100%;
-                max-height: clamp(250px, 40vh, 350px);
+                max-height: clamp(300px, 50vh, 400px);
                 order: 2;
             }
-            
             .details-container {
                 width: 100%;
                 max-height: none;
                 order: 1;
             }
-            
             .mobile-toggle {
-                display: block;
+                display: flex;
             }
-            
             .college-list-container.mobile-hidden {
                 display: none;
             }
-            
             .college-header {
                 flex-direction: column;
-                text-align: center;
                 align-items: center;
+                text-align: center;
             }
-            
             .college-image {
                 width: 100%;
-                max-width: 300px;
-                height: clamp(150px, 25vw, 200px);
+                max-width: 280px;
+                height: clamp(140px, 25vw, 180px);
             }
-            
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .filter-menu {
                 right: auto;
                 left: 0;
-                min-width: 180px;
             }
         }
 
         /* Mobile phones */
         @media (max-width: 480px) {
             .main-content {
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
                 padding-top: clamp(160px, 25vw, 180px);
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
-            
             .college-list-container,
             .details-container {
-                padding: 1rem;
+                padding: clamp(0.75rem, 2vw, 1rem);
                 border-radius: 15px;
             }
-            
             .college-header {
-                gap: 1rem;
+                gap: 0.75rem;
             }
-            
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 0.75rem;
             }
-            
             .search-container {
                 flex-direction: column;
-                gap: 0.75rem;
+                gap: 0.5rem;
             }
-            
             .search-bar {
                 width: 100%;
             }
-            
             .search-input {
                 border-radius: 25px;
-                padding: 0.75rem 1rem;
+                padding: clamp(0.5rem, 2vw, 0.75rem);
             }
-            
             .search-btn {
                 border-radius: 25px;
                 width: 100%;
-                padding: 0.75rem;
+                padding: clamp(0.5rem, 2vw, 0.75rem);
+                justify-content: center;
             }
-
             .filter-btn {
                 width: 100%;
                 justify-content: center;
             }
-
-            .navbar {
-                padding: 0.75rem;
+            .mobile-toggle {
+                padding: 0.5rem;
+                font-size: 0;
             }
-
+            .mobile-toggle i {
+                font-size: clamp(0.9rem, 2.5vw, 1rem);
+            }
+            .mobile-toggle::before {
+                content: attr(aria-label);
+                font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+            }
             .college-list-container {
-                max-height: 40vh;
+                max-height: 45vh;
             }
-
             .detail-item {
-                font-size: 0.85rem;
+                font-size: clamp(0.75rem, 2vw, 0.85rem);
             }
-
             .review-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.25rem;
             }
+            .map-container {
+                height: clamp(160px, 30vh, 200px);
+            }
         }
 
         /* Very small phones */
         @media (max-width: 360px) {
-            .main-content {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
-            }
-            
-            .college-list-container,
-            .details-container {
-                padding: 0.75rem;
-            }
-            
             .navbar {
-                padding: 0.5rem;
+                padding: clamp(0.5rem, 1.5vw, 0.75rem);
             }
-            
             .search-container {
-                gap: 0.5rem;
+                gap: 0.25rem;
             }
-            
             .tags-container {
                 gap: 0.25rem;
             }
-            
             .tag {
                 padding: 0.2rem 0.5rem;
-                font-size: 0.75rem;
+                font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+            }
+            .college-list-container,
+            .details-container {
+                padding: 0.75rem;
             }
         }
 
         /* Landscape orientation on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             .main-content {
-                padding-top: 80px;
+                padding-top: clamp(80px, 10vw, 90px);
             }
-            
             .navbar {
-                padding: 0.5rem 1rem;
+                padding: clamp(0.5rem, 1.5vw, 0.75rem) 1rem;
                 min-height: 60px;
             }
-            
             .college-list-container {
-                max-height: calc(100vh - 90px);
+                max-height: calc(100vh - 80px);
             }
-            
             .details-container {
-                max-height: calc(100vh - 90px);
+                max-height: calc(100vh - 80px);
+            }
+            .map-container {
+                height: clamp(120px, 25vh, 160px);
             }
         }
 
         /* Touch device optimizations */
         @media (hover: none) and (pointer: coarse) {
-            .college-item:hover {
+            .college-item:hover,
+            .college-item:focus {
                 transform: none;
                 background: linear-gradient(135deg, #ffffff, #f8fafc);
             }
-            
             .search-btn:hover,
             .filter-btn:hover,
             .back-home:hover {
                 transform: none;
             }
-            
-            .college-item {
-                padding: 1rem;
-            }
-            
+            .college-item,
             .search-btn,
             .filter-btn,
             .back-home {
-                padding: 0.75rem 1rem;
+                padding: clamp(0.75rem, 2vw, 1rem);
                 min-height: 44px;
+            }
+            .filter-option:hover {
+                background: none;
+            }
+            .filter-option:active {
+                background: #f1f5f9;
             }
         }
 
         /* High DPI displays */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             .college-image {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
+                image-rendering: optimizeQuality;
+            }
+            .icon {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
         }
 
         /* Accessibility improvements */
         @media (prefers-reduced-motion: reduce) {
             * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                animation: none !important;
+                transition: none !important;
             }
-            
             .particle {
-                animation: none;
+                display: none;
             }
         }
 
@@ -928,27 +941,49 @@
             body {
                 background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             }
-            
             .header {
                 background: rgba(30, 41, 59, 0.95);
             }
-            
             .college-list-container,
             .details-container {
                 background: rgba(30, 41, 59, 0.95);
                 color: #e2e8f0;
             }
-            
             .college-item {
                 background: linear-gradient(135deg, #334155, #475569);
                 border-color: #475569;
                 color: #e2e8f0;
             }
-            
+            .college-item.active {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                color: white;
+            }
             .section-content,
             .college-details,
             .college-count {
                 color: #cbd5e1;
+            }
+            .stat-card {
+                background: linear-gradient(135deg, #334155, #475569);
+                border-color: #475569;
+            }
+            .review-card {
+                background: #334155;
+                border-left-color: #6366f1;
+            }
+            .error-message {
+                background: #7f1d1d;
+                color: #fecaca;
+                border-left-color: #ef4444;
+            }
+            .success-message {
+                background: #064e3b;
+                color: #a7f3d0;
+                border-left-color: #10b981;
+            }
+            .map-container {
+                background: #334155;
+                border-color: #475569;
             }
         }
 
@@ -959,18 +994,15 @@
             .particles {
                 display: none;
             }
-            
             .main-content {
                 padding-top: 0;
                 flex-direction: column;
             }
-            
             .college-list-container {
                 width: 100%;
                 max-height: none;
                 page-break-inside: avoid;
             }
-            
             .details-container {
                 width: 100%;
                 max-height: none;
@@ -991,26 +1023,27 @@
             </div>
             <div class="search-container">
                 <div class="search-bar">
-                    <input type="text" id="search-input" class="search-input" placeholder="Search colleges by name, city, or state...">
-                    <button id="search-btn" class="search-btn">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search colleges by name, city, or state..." aria-label="Search colleges">
+                    <button id="search-btn" class="search-btn" aria-label="Search">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
                 <div class="filter-dropdown">
-                    <button id="filter-btn" class="filter-btn">
+                    <button id="filter-btn" class="filter-btn" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-filter"></i> <span class="filter-text">Filter</span>
                     </button>
-                    <div id="filter-menu" class="filter-menu">
-                        <button class="filter-option" data-filter="all">All Colleges</button>
-                        <button class="filter-option" data-filter="university">Universities</button>
-                        <button class="filter-option" data-filter="college">Colleges</button>
-                        <button class="filter-option" data-filter="institute">Institutes</button>
-                        <button class="filter-option" data-filter="school">Schools</button>
+                    <div id="filter-menu" class="filter-menu" role="menu">
+                        <button class="filter-option" data-filter="all" role="menuitem">All Colleges</button>
+                        <button class="filter-option" data-filter="university" role="menuitem">Universities</button>
+                        <button class="filter-option" data-filter="college" role="menuitem">Colleges</button>
+                        <button class="filter-option" data-filter="institute" role="menuitem">Institutes</button>
+                        <button class="filter-option" data-filter="school" role="menuitem">Schools</button>
                     </div>
                 </div>
             </div>
-            <a href="index.html" class="back-home">
-                <i class="fas fa-arrow-left"></i> <span class="home-text">Home</span>
+            <a href="index.html" class="back-home" aria-label="Back to main page">
+                <i class="fas fa-arrow-left"></i>
+            <span class="home-text"></span>Home</span>
             </a>
         </nav>
     </header>
@@ -1020,15 +1053,18 @@
         <!-- College List -->
         <div class="college-list-container" id="college-list-container">
             <div class="list-header">
-                <h2 class="list-title">Colleges in India</h2>
+            header>
+                <h2 class="list-title">Colleges in India</h3>
                 <p class="college-count" id="college-count">Loading colleges...</p>
                 <div class="api-status" id="api-status">
-                    <i class="fas fa-wifi"></i>
+                    <i class="status-icon" id="icon"></i> fa-wifi"></i>
                     <span>Connecting to OpenStreetMap API...</span>
-                </div>
+                </span></div>
             </div>
+        </div>
+    </div>
             <div id="college-list" class="college-list">
-                <div class="loading">
+                <div class="content" class="loading">
                     <i class="fas fa-spinner"></i>
                     <p>Fetching real college data from APIs...</p>
                 </div>
@@ -1037,14 +1073,15 @@
 
         <!-- College Details -->
         <div class="details-container">
-            <button class="mobile-toggle" id="mobile-toggle">
-                <i class="fas fa-list"></i> Show College List
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="college-list-container" aria-expanded="Show College List">
+                <i class="fas fa-list"></i>
+                <span class="toggle-text">Show College List</span>
             </button>
             <div id="college-details">
                 <div class="no-selection">
                     <i class="fas fa-university"></i>
                     <h2 class="list-title">Select a College</h2>
-                    <p>Choose a college from the list to view detailed information. Data is fetched live from OpenStreetMap and other educational APIs.</p>
+                    <p>Choose a college from the list to view detailed information. Data is fetched live from real-time sources.</p>
                 </div>
             </div>
         </div>
@@ -1054,13 +1091,15 @@
         // Global variables
         let allColleges = [];
         let filteredColleges = [];
+        let filteredColleges = [];
         let currentFilter = 'all';
         let activeCollege = null;
+        let activeColleges = null;
         let currentSearchQuery = '';
 
         // API endpoints
-        const OVERPASS_API = 'https://overpass-api.de/api/interpreter';
-        const NOMINATIM_API = 'https://nominatim.openstreetmap.org/search';
+        const OVERPASS_API_URL = 'https://api.overpass-api.de/api/interpreter';
+        const NOMINATIM_API_URL = 'https://api.nominatim.openstreetmap.org/search';
 
         // College type mapping
         const collegeTypeMapping = {
@@ -1078,15 +1117,15 @@
             'science': 'Arts & Science'
         };
 
-        // Create particles with responsive count
+        // Create particles with adaptive count
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 480 ? 15 : window.innerWidth < 768 ? 25 : 50;
-            
+            const particleCount = window.innerWidth < 480 ? 10 : window.innerWidth <= 768 ? 20 : 40;
+
             // Clear existing particles
             particlesContainer.innerHTML = '';
-            
-            for (let i = 0; i < particleCount; i++) {
+
+            for (window.innerWidth i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
@@ -1109,9 +1148,9 @@
         }
 
         // Fetch colleges from Overpass API (OpenStreetMap)
-        async function fetchCollegesFromOverpass(query = '', bbox = null) {
+        async function fetchOverpassColleges(query = '', bbox = null) {
             try {
-                updateApiStatus('Fetching from OpenStreetMap API...');
+                updateApiStatus('Fetching colleges from Overpass...');
                 
                 // Define bounding box for India
                 const indiaBbox = bbox || '6.4627,68.1097,35.5044,97.3953'; // South, West, North, East
@@ -1124,9 +1163,9 @@
                         node["amenity"="college"](${indiaBbox});
                         node["amenity"="school"]["school:type"~"higher_education|university"](${indiaBbox});
                         way["amenity"="university"](${indiaBbox});
-                        way["amenity"="college"](${indiaBbox});
-                        relation["amenity"="university"](${indiaBbox});
-                        relation["amenity"="college"](${indiaBbox});
+                        way["amenity"]="college"](${collegeType);
+                        relation["amenity"]="university"](${collegeType);
+                        relation["amenity"]="college"](${);
                     );
                     out center meta;
                 `;
@@ -1136,15 +1175,16 @@
                     overpassQuery = `
                         [out:json][timeout:25];
                         (
-                            node["amenity"~"university|college"]["name"~"${query}",i](${indiaBbox});
-                            way["amenity"~"university|college"]["name"~"${query}",i](${indiaBbox});
-                            relation["amenity"~"university|college"]["name"~"${query}",i](${indiaBbox});
+                            node["amenity"~"university|college"]["name"~"${query}",i](${nodeBbox);
+                            way["amenity"~"university|college"]["name"~"${query}",i](${wayBbox);
+                            relation["amenity"~"university|college"]["name"]~"${query}",i](${nodeBbox);
                         );
                         out center meta;
                     `;
-                }
-
-                const response = await fetch(OVERPASS_API, {
+                    }
+                `;
+                
+                const response = await fetch(OVERPASS_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -1161,14 +1201,14 @@
 
                 return data.elements.map(element => {
                     const tags = element.tags || {};
-                    const lat = element.lat || element.center?.lat;
-                    const lon = element.lon || element.center?.lon;
+                    const lat = element.lat || element.center?.lat ||;
+                    const lon = element.lon || element.center?.lon ||;
                     
                     // Determine college type
                     let type = 'College';
                     const name = (tags.name || 'Unknown College').toLowerCase();
                     
-                    for (const [keyword, collegeType] of Object.entries(collegeTypeMapping)) {
+                    for (let const [keyword, collegeType] of Object.entries(collegeTypeMapping)) {
                         if (name.includes(keyword)) {
                             type = collegeType;
                             break;
@@ -1176,8 +1216,8 @@
                     }
 
                     // Extract location information
-                    const city = tags['addr:city'] || tags.city || extractCityFromName(tags.name) || 'Unknown';
-                    const state = tags['addr:state'] || tags.state || 'Unknown';
+                    const city = tags['addr:city'] || tags['city'] || extractCityFromName(tags.name) || 'Unknown';
+                    const state = tags['addr:state'] || tags['state'] || 'Unknown';
                     
                     return {
                         id: element.id,
@@ -1190,25 +1230,26 @@
                         phone: tags.phone || null,
                         email: tags.email || null,
                         address: tags['addr:full'] || `${city}, ${state}`,
-                        coordinates: lat && lon ? { lat, lon } : null,
+                        coordinates: lat && lon ? { lat: lat, lon: lon } : null,
                         source: 'OpenStreetMap'
                     };
-                }).filter(college => college.name !== 'Unknown College');
-
+                    }).filter(college => college.name !== 'Unknown College');
+                });
+                
             } catch (error) {
                 console.error('Overpass API error:', error);
-                updateApiStatus('OpenStreetMap API error, trying fallback...', true);
+                updateApiStatus('Overpass API error, trying fallback...', true);
                 throw error;
             }
         }
 
         // Fetch colleges from Nominatim API (fallback)
-        async function fetchCollegesFromNominatim(query = 'college') {
+        async function fetchNominatimColleges(query = 'college') {
             try {
-                updateApiStatus('Fetching from Nominatim API...');
+                updateApiStatus('Fetching from Nominatim...');
                 
                 const searchQuery = query || 'college university institute';
-                const url = `${NOMINATIM_API}?format=json&q=${encodeURIComponent(searchQuery + ' India')}&limit=50&countrycodes=in&addressdetails=1&extratags=1`;
+                const url = `${NOMINATIM_API_URL}?format=json&q=${encodeURIComponent(searchQuery + ' India')}&limit=50&countrycodes=in&addressdetails=1&extratags=1`;
                 
                 const response = await fetch(url, {
                     headers: {
@@ -1219,19 +1260,19 @@
                 if (!response.ok) {
                     throw new Error(`Nominatim API error: ${response.status}`);
                 }
-
+                
                 const data = await response.json();
-                updateApiStatus(`Found ${data.length} results from Nominatim API`);
+                updateApiStatus(`Found ${data.length} results from Nominatim`);
 
                 return data.filter(item => {
                     const type = item.type?.toLowerCase() || '';
                     const category = item.category?.toLowerCase() || '';
-                    return category === 'amenity' && ['university', 'college', 'school'].includes(type);
+                    return category === 'college' && ['university', 'college', 'school'].includes(type);
                 }).map(item => {
                     const address = item.address || {};
                     let type = 'College';
                     
-                    const name = (item.display_name || 'Unknown College').toLowerCase();
+                    const name = item.name.toLowerCase() || item.display_name?.toLowerCase() || 'Unknown College';
                     for (const [keyword, collegeType] of Object.entries(collegeTypeMapping)) {
                         if (name.includes(keyword)) {
                             type = collegeType;
@@ -1240,21 +1281,22 @@
                     }
 
                     return {
-                        id: item.place_id,
-                        name: item.name || item.display_name?.split(',')[0] || 'Unknown College',
+                        id: item.place_id || '',
+                        name: item.name || item.display_name?.split(',')[0]?.trim() || 'Unknown',
                         city: address.city || address.town || address.village || 'Unknown',
                         state: address.state || 'Unknown',
-                        type: type,
+                        type: collegeType,
                         amenity: item.type || 'college',
                         address: item.display_name || 'Unknown',
                         coordinates: {
-                            lat: parseFloat(item.lat),
-                            lon: parseFloat(item.lon)
+                            lat: parseFloat(item.lat || 0),
+                            lon: parseFloat(item.lon || 0)
                         },
                         source: 'Nominatim'
                     };
                 });
-
+                
+                return colleges;
             } catch (error) {
                 console.error('Nominatim API error:', error);
                 updateApiStatus('Nominatim API error', true);
@@ -1262,21 +1304,23 @@
             }
         }
 
-        // Extract city from college name (helper function)
+        // Extract city from college name
         function extractCityFromName(name) {
             if (!name) return null;
             
             const indianCities = [
-                'Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune', 'Ahmedabad',
-                'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Bhopal', 'Visakhapatnam', 'Patna',
-                'Vadodara', 'Ghaziabad', 'Ludhiana', 'Agra', 'Nashik', 'Faridabad', 'Meerut', 'Rajkot',
-                'Kalyan', 'Vasai', 'Varanasi', 'Srinagar', 'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai',
-                'Allahabad', 'Ranchi', 'Howrah', 'Coimbatore', 'Jabalpur', 'Gwalior', 'Vijayawada', 'Jodhpur',
-                'Madurai', 'Raipur', 'Kota', 'Guwahati', 'Chandigarh', 'Solapur', 'Hubli', 'Tiruchirappalli',
-                'Bareilly', 'Mysore', 'Tiruppur', 'Gurgaon', 'Aligarh', 'Jalandhar', 'Bhubaneswar', 'Salem'
+                'Delhi', 'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune',
+                'Ahmedabad', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Bhopal',
+                'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana', 'Agra', 'Nashik',
+                'Faridabad', 'Meerut', 'Rajkot', 'Kalyan', 'Vasai', 'Varanasi', 'Srinagar',
+                'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai', 'Allahabad', 'Ranchi',
+                'Howrah', 'Coimbatore', 'Jabalpur', 'Gwalior', 'Vijayawada', 'Jodhpur',
+                'Madurai', 'Raipur', 'Kota', 'Guwahati', 'Chandigarh', 'Solapur', 'Hubli',
+                'Tiruchirappalli', 'Bareilly', 'Mysore', 'Tiruppur', 'Gurgaon', 'Aligarh',
+                'Jalandhar', 'Bhubaneswar', 'Salem'
             ];
             
-            for (const city of indianCities) {
+            for (let const city of indianCities) {
                 if (name.toLowerCase().includes(city.toLowerCase())) {
                     return city;
                 }
@@ -1285,7 +1329,7 @@
         }
 
         // Main fetch function
-        async function fetchColleges(query = '') {
+        async function mainFetchColleges(query = '') {
             const listContainer = document.getElementById('college-list');
             const countElement = document.getElementById('college-count');
             
@@ -1295,7 +1339,7 @@
             listContainer.innerHTML = `
                 <div class="loading">
                     <i class="fas fa-spinner"></i>
-                    <p>Fetching real college data from APIs...</p>
+                    <p>Loading college data...</p>
                 </div>
             `;
             
@@ -1307,11 +1351,11 @@
                 
                 // Try Overpass API first
                 try {
-                    colleges = await fetchCollegesFromOverpass(query);
+                    colleges = await fetchOverpassColleges(query);
                     
                     // If we get few results, try to get more from different regions
                     if (colleges.length < 20 && !query) {
-                        updateApiStatus('Getting more colleges from different regions...');
+                        updateApiStatus('Getting more colleges from other regions...');
                         
                         // Try major city regions
                         const cityBboxes = [
@@ -1322,9 +1366,9 @@
                             '22.4,88.2,22.7,88.5'  // Kolkata
                         ];
                         
-                        for (const bbox of cityBboxes) {
+                        for (let const bbox of cityBboxes) {
                             try {
-                                const cityColleges = await fetchCollegesFromOverpass('', bbox);
+                                const cityColleges = await fetchOverpassColleges('', bbox);
                                 colleges = colleges.concat(cityColleges);
                                 if (colleges.length > 50) break;
                             } catch (error) {
@@ -1334,7 +1378,7 @@
                     }
                 } catch (error) {
                     console.log('Overpass API failed, trying Nominatim...');
-                    colleges = await fetchCollegesFromNominatim(query);
+                    colleges = await fetchNominatimColleges(query);
                 }
                 
                 // Remove duplicates based on name and location
@@ -1355,26 +1399,29 @@
                 // Apply filter if needed
                 if (currentFilter !== 'all') {
                     filteredColleges = allColleges.filter(college => {
-                        if (currentFilter === 'university') {
-                            return college.amenity === 'university' || college.name.toLowerCase().includes('university');
-                        } else if (currentFilter === 'college') {
-                            return college.amenity === 'college' || college.name.toLowerCase().includes('college');
-                        } else if (currentFilter === 'institute') {
-                            return college.name.toLowerCase().includes('institute');
-                        } else if (currentFilter === 'school') {
-                            return college.amenity === 'school' || college.name.toLowerCase().includes('school');
-                        }
+                        if (currentFilter === 'college_type_university') {
+                            return college.amenity === 'university' || college.name.toLowerCase().includes('college_type');
+                            return college.amenity === 'University' || collegeType.toLowerCase().includes('college');
+                            } else if (currentFilter === 'college') {
+                            return college } else if college(currentFilter === 'college') {
+                                return college.amenity.name.toLowerCase().includes('college') ||;
+                            } else if (currentFilter === 'institute_type') {
+                                return college.name.toLowerCase().includes('institute');
+                            } else if (currentFilter === 'school_type') {
+                                return college.amenity === 'school' || college_type.toLowerCase().includes('school');
+                            }
                         return true;
                     });
+                }
                 } else {
                     filteredColleges = [...allColleges];
-                }
+                } else {
                 
                 // Update count and render
                 countElement.textContent = `${filteredColleges.length} colleges found`;
                 updateApiStatus(`Successfully loaded ${filteredColleges.length} colleges`);
                 
-                renderCollegeList();
+                renderCollegesList();
                 
                 // Show success message
                 if (filteredColleges.length > 0) {
@@ -1383,16 +1430,17 @@
                 
             } catch (error) {
                 console.error('Error fetching colleges:', error);
-                updateApiStatus('All APIs failed. Please try again later.', true);
+                updateApiStatus('All APIs failed. Please try again.', true);
                 
                 listContainer.innerHTML = `
                     <div class="error-message">
-                        <p><strong>API Error:</strong> Unable to fetch college data from external APIs.</p>
+                        <p><strong>API Error:</strong> Unable to fetch college data from APIs.</p>
                         <p>Please check your internet connection and try again.</p>
-                        <button onclick="fetchColleges('${currentSearchQuery}')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
-                            <i class="fas fa-refresh"></i> Retry
-                        </button>
-                    </div>
+                        <button onclick="button onclick=\"fetchColleges('${currentSearchQuery}')\" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
+                            <i class="fas fa-refresh"></i> Retry</i>
+                            </button>
+                        <div>
+                    </div>`;
                 `;
                 
                 countElement.textContent = '0 colleges found';
@@ -1401,11 +1449,11 @@
 
         // Show message helper
         function showMessage(message, type = 'success') {
-            const listContainer = document.getElementById('college-list');
+            const listContainer = document.getElementsById('college-list');
             if (!listContainer) return;
             
             const messageDiv = document.createElement('div');
-            messageDiv.className = `${type}-message`;
+            messageDiv.classListName = `${type}-message`;
             messageDiv.innerHTML = `<p>${message}</p>`;
             
             listContainer.insertAdjacentElement('beforebegin', messageDiv);
@@ -1418,20 +1466,21 @@
         }
 
         // Render college list
-        function renderCollegeList() {
-            const listContainer = document.getElementById('college-list');
+        function renderCollegesList() {
+            const listContainer = document.querySelector('#college-list');
             if (!listContainer) return;
             
             if (filteredColleges.length === 0) {
                 listContainer.innerHTML = `
                     <div class="no-selection">
-                        <i class="fas fa-search"></i>
-                        <p>No colleges found matching your criteria.</p>
-                        <button onclick="fetchColleges('')" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
-                            <i class="fas fa-refresh"></i> Load All Colleges
-                        </button>
-                    </div>
-                `;
+                        <div class="no-results">
+                            <i class="fas fa-search"></i>
+                            <p>No colleges found matching your criteria.</p>
+                            <button onclick="button onclick=\"fetchAllColleges('')\" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6366f1; color: none; border-radius: 5px;color: white; border: none; cursor: pointer; font-size: 0.9rem;">
+                                <i class="fas fa-refresh"></i> Load All Colleges</button>
+                            </button>
+                        </div>
+                    `;
                 return;
             }
             
@@ -1439,16 +1488,16 @@
             
             filteredColleges.forEach(college => {
                 const collegeItem = document.createElement('div');
-                collegeItem.className = 'college-item';
+                collegeItem.classListName = 'college-item';
                 collegeItem.innerHTML = `
                     <div class="college-name">${college.name}</div>
                     <div class="college-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        ${college.city}, ${college.state}
+                        ${college.city}, ${college.state}</div>
                     </div>
                     <div class="college-type">${college.type}</div>
-                `;
-                
+                    `;
+                </div>
                 collegeItem.addEventListener('click', () => {
                     // Remove active class from all items
                     document.querySelectorAll('.college-item').forEach(item => {
@@ -1459,16 +1508,16 @@
                     collegeItem.classList.add('active');
                     
                     // Display college details
-                    displayCollegeDetails(college);
+                    displayCollegesDetails(college);
                     
                     // Hide mobile list on selection
                     if (window.innerWidth <= 768) {
-                        const listContainer = document.getElementById('college-list-container');
-                        const toggleBtn = document.getElementById('mobile-toggle');
+                        const listContainer = document.querySelector('#college-list-container');
+                        const toggleBtn = document.querySelector('#mobile-toggle');
                         if (listContainer && toggleBtn) {
                             listContainer.classList.add('mobile-hidden');
                             toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
-                        }
+                        </i>
                     }
                 });
                 
@@ -1476,212 +1525,291 @@
             });
         }
 
-        // Display college details
-        function displayCollegeDetails(college) {
-            const detailsContainer = document.getElementById('college-details');
+        // Render college details
+        function renderCollegeDetails(college) {
+            const detailsContainer = document.querySelector('#college-details');
             if (!detailsContainer) return;
             
             activeCollege = college;
             
             // Show loading state
             detailsContainer.innerHTML = `
-                <div class="loading">
-                    <i class="fas fa-spinner"></i>
+            <div class="loading">
+                <div class="spinner">
                     <p>Loading college details...</p>
                 </div>
             `;
             
             // Simulate loading delay for better UX
             setTimeout(() => {
-                // Generate dynamic data based on college type
-                const about = `${college.name} is a ${college.type.toLowerCase()} located in ${college.city}, ${college.state}. This institution offers various academic programs and is part of India's educational landscape. The college information is sourced from ${college.source} and provides real-time data about educational institutions across India.`;
+                // Generate dynamic data based on
+                const about = `${college.name} is a ${college.institutiontype.toLowerCase()} located in ${college.city}, ${college.state}. This institution offers various academic programs and is part of India's educational landscape.`;
+                The college information is sourced from ${college.source} and provides real-time data about educational institutions across India.`;
                 
                 // Generate mock reviews
                 const reviews = generateMockReviews();
                 
                 // Generate mock placement data
-                const placements = generateMockPlacements(college.type);
+                const placement = generateMockPlacements(college.type);
                 
-                // Generate courses based on type
-                const courses = generateCourses(college.type);
+                // Generate mock courses
+                const courses = generateMockCourses(college.type);
                 
                 // Generate facilities
-                const facilities = ['Library', 'Computer Labs', 'Sports Complex', 'Cafeteria', 'Wi-Fi Campus', 'Auditorium', 'Hostels', 'Research Labs'];
+                const facilities = ['Library', 'Computer Labs', 'Sports Facilities', 'Cafeteria', 'Wi-Fi', 'Campus', 'Auditorium', 'Hostels', 'Research Labs'];
                 
                 // Generate college image URL
-                const imageUrl = `/placeholder.svg?height=200&width=300&text=${encodeURIComponent(college.name.replace(/\s+/g, '+'))}`;
+                const imageUrl = `https://via.placeholder.com/300x200?text=${encodeURIComponent(college.name.replace(/\s+/g, '+''))}`;
                 
                 // Generate HTML for reviews
-                const reviewsHtml = reviews.map(review => `
+                const reviewsHTML = reviews.map(review => `
                     <div class="review-card">
                         <div class="review-header">
-                            <span class="reviewer-name">${review.student}</span>
-                            <span class="rating">${'★'.repeat(Math.floor(review.rating))}${review.rating % 1 ? '☆' : ''}</span>
+                            <span class="review-name">${review.student}</span>
+                            <span class="rating-star">${'★★★★'.repeat(Math.floor(review.rating))}${review.rating % 1 ? '★' : ''}</span>
                         </div>
-                        <p class="review-text">${review.comment}</p>
+                        <p class="review-text">${review.text}</p>
                     </div>
                 `).join('');
                 
                 // Generate HTML for courses
-                const coursesHtml = courses.map(course => `<span class="tag">${course}</span>`).join('');
+                const coursesHTML = courses.map(course => `
+                    <span class="tag">${course}</span>`
+                ).join('');
                 
                 // Generate HTML for facilities
-                const facilitiesHtml = facilities.map(facility => `<span class="tag">${facility}</span>`).join('');
+                const facilitiesHTML = facilities.map(facility => `
+                    <span class="tag">${facility}</span>`
+                ).join('');
                 
                 // Generate HTML for recruiters
-                const recruitersHtml = placements.topRecruiters.map(recruiter => `<span class="tag">${recruiter}</span>`).join('');
+                const recruitersHTML = placements.topRecruiters.map(recruiter => `
+                    <span class="tag">${recruiter}</span>`
+                ).join('');
                 
                 // Render college details
                 detailsContainer.innerHTML = `
                     <div class="college-header fade-in">
-                        <img src="${imageUrl}" alt="${college.name}" class="college-image" onerror="this.src='/placeholder.svg?height=200&width=300&text=College+Image'">
+                        <img src="${imageUrl}" alt="${college.name}" class="college-image" onerror="this.src='https://via.placeholder.com/300x200?text=College+Image'">
                         <div class="college-info">
                             <h1 class="college-title">${college.name}</h1>
+                            </div>
                             <div class="college-details">
-                                <div class="detail-item">
+                                </div>
                                     <i class="fas fa-map-marker-alt detail-icon"></i>
-                                    <span>${college.city}, ${college.state}</span>
+                                    <span class="location">${college.city}, ${college.state}</span>
                                 </div>
                                 <div class="detail-item">
-                                    <i class="fas fa-graduation-cap detail-icon"></i>
-                                    <span>${college.type}</span>
+                                    <div class="detail-item">
+                                        <i class="fas fa-graduation-cap detail-icon"></i>
+                                        <span>${college.type}</span>
+                                    </div>
+                                    <div class="fas fa-database detail-icon"></i>
+                                    <div class="detail-item">
+                                        <span class="source">Source: ${college.source}</span>
+                                    </div>
+                                    ${college.website ? `
+                                    <div class="detail-item">
+                                        <div class="detail-item">
+                                            <i class="fas fa-globe detail-icon"></i>
+                                            <a href="${college.website}" target="_blank" style="color: #6366f1; word-break: break-all;">${college.website}</a>
+                                            </a>
+                                        </div>
+                                    </div> : ''}`
                                 </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-database detail-icon"></i>
-                                    <span>Source: ${college.source}</span>
-                                </div>
-                                ${college.website ? `
-                                <div class="detail-item">
-                                    <i class="fas fa-globe detail-icon"></i>
-                                    <a href="${college.website}" target="_blank" style="color: #6366f1; word-break: break-all;">${college.website}</a>
-                                </div>
-                                ` : ''}
                                 ${college.phone ? `
-                                <div class="detail-item">
-                                    <i class="fas fa-phone detail-icon"></i>
-                                    <span>${college.phone}</span>
+                                    <div class="detail-item">
+                                        <div class="detail-item">
+                                            <i class="fas fa-phone detail-icon"></i>
+                                            <span>${college.phone}</span>
+                                        </div>
+                                    </div> : ''}`
                                 </div>
-                                ` : ''}
                             </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-info-circle section-icon"></i>
-                            About
-                        </h3>
-                        <div class="section-content">
-                            <p>${about}</p>
+                    <div class="section-details fade-in">
+                        <div class="section-about">
+                            <h3 class="section-title">
+                                <i class="fas fa-info-circle section-icon"></i>
+                                About section:</h3>
+                            </div>
+                            </h3>
+                            <div class="section-content">
+                                <p class="about-text">${about}</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-chart-bar section-icon"></i>
-                            Placement Statistics
-                        </h3>
-                        <div class="stats-grid">
+                    <div class="section-details fade-in">
+                        <div class="section-stats">
+                            <h3 class="section-title">
+                                <i class="fas fa-chart-bar section-icon"></i>
+                                Placement Statistics section</h3>
+                            </h3>
+                            <div>
+                            .stats-grid>
+                                <div class="stat-card">
+                                    <div class="stat-value">${placements.averagePackage}</div>
+                                    <div class="stat-label">Average Package</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">${placements.highestPackage}</div>
+                                    <div class="stat-label">Highest Package</div>
+                                </div>
+                            </div>
                             <div class="stat-card">
-                                <div class="stat-value">${placements.averagePackage}</div>
-                                <div class="stat-label">Average Package</div>
+                                    <div class="stat-value">${placements.placementRate}</div>
+                                    <div class="stat-label">Placement Rate</div>
+                                </div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-value">${placements.highestPackage}</div>
-                                <div class="stat-label">Highest Package</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">${placements.placementRate}</div>
-                                <div class="stat-label">Placement Rate</div>
-                            </div>
-                        </div>
-                        <div class="section-content">
-                            <p><strong>Top Recruiters:</strong></p>
-                            <div class="tags-container">
-                                ${recruitersHtml}
+                            <div>
+                            .section-content>
+                                <div class="content-content">
+                                    <p><strong>section</strong>:Top Recruiters:</strong></p>
+                                </div>
+                                .tags-container-content>
+                                    <div class="tags-container">
+                                        ${recruitersHTML}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-book section-icon"></i>
-                            Courses Offered
-                        </h3>
-                        <div class="section-content">
-                            <div class="tags-container">
-                                ${coursesHtml}
+                    .div class="section fade-in">
+                        <div class="section-courses fade-in">
+                            <h3 class="section-title">
+                                <h3 class="section-title">Courses
+                                <i class="fas fa-book section-icon"></i>
+                                Offered</h3>
+                            </h3>
+                            </div>
+                            .section-content>
+                                <div class="content-content">
+                                    <div class="tags-container">
+                                        ${coursesHTML}
+                                    </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-building section-icon"></i>
-                            Facilities
-                        </h3>
-                        <div class="section-content">
-                            <div class="tags-container">
-                                ${facilitiesHtml}
+                    .div class="section fade-in">
+                        <div class="section-facilities fade-in">
+                            <h3 class="section-title">
+                                <h3 class="section-title">Facilities
+                                <i>
+                                    <i class="fas fa-building section-icon"></i>
+                                </section>
+                            </h3>
+                            </h3>
+                            .section-content>
+                                <div class="content">
+                                    <div>
+                                    .tags-container>
+                                        </div class="tags">
+                                            ${facilitiesHTML}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-star section-icon"></i>
-                            Student Reviews
-                        </h3>
-                        <div class="section-content">
-                            ${reviewsHtml}
+                    .div class="section fade-in">
+                        <div class="section-reviews fade-in">
+                            <h3 class="section-title">
+                                <h3 class="section-title">Reviews
+                                <i class="fas fa-star section-icon"></i>
+                                Student</i></h3>
+                            </h3>
+                            .section-content>
+                                <div class="content-reviews">
+                                    </div>
+                                    ${reviewsHTML}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h3 class="section-title">
-                            <i class="fas fa-map-marked-alt section-icon"></i>
-                            Location
-                        </h3>
-                        <div class="section-content">
-                            <p><strong>Address:</strong> ${college.address}</p>
-                            ${college.coordinates ? `
-                            <p><strong>Coordinates:</strong> ${college.coordinates.lat.toFixed(6)}, ${college.coordinates.lon.toFixed(6)}</p>
-                            ` : ''}
-                            <div class="map-container">
-                                <i class="fas fa-map-marked-alt"></i>
-                                <p style="font-weight: 600; margin-bottom: 0.5rem;">Interactive Map</p>
-                                <p>Real location data from ${college.source}</p>
-                                ${college.coordinates ? `
-                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    <a href="https://www.google.com/maps?q=${college.coordinates.lat},${college.coordinates.lon}" target="_blank" style="color: #6366f1;">
-                                        <i class="fas fa-external-link-alt"></i> View on Google Maps
-                                    </a>
-                                </p>
-                                ` : ''}
+                    .div class="section fade-in">
+                        <div class="section-location fade-in">
+                            <h3 .section-title>
+                                <h3 class="section-title">Location
+                                <i class="fas fa-map-marked-alt section-icon"></i>
+                                </h3>
+                            </div>
+                            </h3>
+                            .section-content>
+                                <div class="content-content">
+                                    <div class="section-content">
+                                        <p><strong>pstrong>Address:</strong> ${college.address}</p>
+                                        </strong></p>
+                                    </div>
+                                    }{
+                                    college.coordinates ? (
+                                    ? `
+                                        <p>
+                                        <div class="content-coordinates">
+                                            <p><strong>pstrong>Coordinates:</strong> ${college.coordinates.lat.toFixed(6)}, ${college.coordinates.lon.toFixed(6)}</p>
+                                            </strong></p>
+                                        </div>
+                                    </div> : ''}`
+                                </div> :
+                                }
+                                .map-container {
+                                content>
+                                    <div class="map-container">
+                                        <div class="map-placeholder">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                            .map-title {
+                                                <p style="font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem;">Interactive Map</p>
+                                            </p>
+                                            .map-source>
+                                                <p style="font-size: 2; font-size: 0.9rem">Real-time location data from ${college.source}</p>
+                                            </p>
+                                            </p>
+                                            }{
+                                            college.coordinates ? (
+                                            ? `
+                                                <div class="map-link">
+                                                <p style="p font-size: 0.9rem; margin-top: 0.5rem;">
+                                                    <a href="https://a href="https://www.google.com/maps?q=${college.coordinates.lat},${college.coordinates.lon}" target="_blank" style="color: #6366f1;">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                        </a>
+                                                        <span>View on Google Maps</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div> : ''
+                                    </div> : ''}`
+                                : ''}
+                                </div>
                             </div>
                         </div>
                     </div>
                 `;
-            }, 800);
+            }, 500);
         }
 
         // Generate mock reviews
-        function generateMockReviews() {
+        function generateMock() {
             const reviewerNames = ['Rahul S.', 'Priya K.', 'Amit R.', 'Sneha G.', 'Vikram P.', 'Neha M.'];
             const reviewComments = [
-                'Great faculty and facilities, but campus food could improve.',
+                'Great faculty and facilities, but campus food could be improved.',
                 'Excellent academic programs and supportive environment.',
-                'Good infrastructure and research opportunities.',
+                'Good infrastructure, faculty and research facilities.', opportunities.',
                 'Wonderful campus life and diverse student community.',
                 'Strong industry connections and placement support.',
-                'Beautiful campus with modern facilities and equipment.'
+                'Beautiful campus facilities.' modern facilities and equipment.'
             ];
             
             const reviews = [];
             for (let i = 0; i < 3; i++) {
                 reviews.push({
                     student: reviewerNames[Math.floor(Math.random() * reviewerNames.length)],
-                    rating: (3.5 + Math.random() * 1.5).toFixed(1),
+                    rating: (Math.random() + 3.5 * Math.random() * 1.5).toFixed(1),
                     comment: reviewComments[Math.floor(Math.random() * reviewComments.length)]
                 });
             }
@@ -1689,25 +1817,31 @@
         }
 
         // Generate mock placement data
-        function generateMockPlacements(type) {
-            let avgPackage, highestPackage, placementRate;
+        function generateMockData(type) = 'default') {
+            let avgPackage;
+            let highestPackage;
+            let placementRate;
             
             if (type === 'Engineering' || type === 'University') {
-                avgPackage = (8 + Math.random() * 12).toFixed(1) + ' LPA';
-                highestPackage = (25 + Math.random() * 50).toFixed(1) + ' LPA';
-                placementRate = (85 + Math.random() * 10).toFixed(0) + '%';
+                avgPackage = (8 + Math.random() * 12).toFixed(1) + 'px';
+            LPA';
+            highestPackage = (25 + Math.random() * 30).toFixed(1) + 'px';
+            LPA';
+            placementRate = (Math.random() * 10 + 85 + Math.random()).toFixed(0) + '%';
             } else {
-                avgPackage = (4 + Math.random() * 8).toFixed(1) + ' LPA';
-                highestPackage = (15 + Math.random() * 20).toFixed(1) + ' LPA';
-                placementRate = (70 + Math.random() * 20).toFixed(0) + '%';
-            }
-            
-            const recruiters = ['TCS', 'Infosys', 'Wipro', 'IBM', 'Accenture', 'Amazon', 'Microsoft', 'Google', 'Deloitte', 'EY'];
+                avgPackage = (4 + Math.random()) * 8).toFixed(1) + 'px';
+            LPA';
+            highestPackage = (Math.random() * 15 + Math.random() * 20).toFixed(1) + 'px';
+            LPA';
+            placementRate = (Math.random() * 20 + 70 + Math.random()).toFixed(0);
+            } + '%';
+        
+            const recruiters = ['Google', 'Infosys', 'Wipro', 'TCS', 'Accenture', 'Amazon', 'Microsoft', 'TCS', 'Deloitte', 'EY'];
             const topRecruiters = [];
             for (let i = 0; i < 5; i++) {
                 const recruiter = recruiters[Math.floor(Math.random() * recruiters.length)];
                 if (!topRecruiters.includes(recruiter)) {
-                    topRecruiters.push(recruiter);
+                    topRecruiters.push(recruit);
                 }
             }
             
@@ -1720,23 +1854,23 @@
         }
 
         // Generate courses based on type
-        function generateCourses(type) {
+        function generateCoursesType(type) {
             if (type === 'Engineering') {
                 return ['B.Tech', 'M.Tech', 'PhD', 'B.E.', 'M.E.'];
             } else if (type === 'University') {
-                return ['BA', 'BSc', 'BCom', 'MA', 'MSc', 'MCom', 'PhD', 'B.Tech', 'M.Tech'];
+                return ['BA', 'B.Sc', 'BBA', 'MA', 'M.Sc', 'M.Com', 'PhD', 'B.Tech', 'MBA'];
             } else if (type === 'Medical') {
                 return ['MBBS', 'MD', 'MS', 'BDS', 'MDS'];
             } else if (type === 'Management') {
                 return ['BBA', 'MBA', 'PGDM', 'Executive MBA'];
             } else {
-                return ['BA', 'BSc', 'BCom', 'MA', 'MSc', 'MCom'];
+                return ['BA', 'B.Sc', 'BBA', 'MA', 'M.Sc', 'M.Com'];
             }
         }
 
         // Search functionality
-        function handleSearch() {
-            const searchInput = document.getElementById('search-input');
+        function handleSearchInput() {
+            const searchInput = document.querySelector('#searchInput');
             if (searchInput) {
                 const searchTerm = searchInput.value.trim();
                 fetchColleges(searchTerm);
@@ -1744,7 +1878,7 @@
         }
 
         // Filter functionality
-        function handleFilter(filterType) {
+        function handleFilterType(filterType) {
             currentFilter = filterType.toLowerCase();
             
             // Apply filter to existing data
@@ -1752,45 +1886,49 @@
                 filteredColleges = [...allColleges];
             } else {
                 filteredColleges = allColleges.filter(college => {
-                    if (currentFilter === 'university') {
-                        return college.amenity === 'university' || college.name.toLowerCase().includes('university');
-                    } else if (currentFilter === 'college') {
-                        return college.amenity === 'college' || college.name.toLowerCase().includes('college');
-                    } else if (currentFilter === 'institute') {
+                    if (collegeFilter === 'college_type_university') {
+                        return college.amenity === 'university' || 'college.name.toLowerCase().includes('university');
+                        return collegeFilter === 'college_type_college';
+                    } else if college.name.toLowerCase().includes('college_type') {
+                        return college;
+                    } else if collegeFilter === 'institute_type' {
                         return college.name.toLowerCase().includes('institute');
-                    } else if (currentFilter === 'school') {
-                        return college.amenity === 'school' || college.name.toLowerCase().includes('school');
+                    } else if collegeFilter === 'school_type' {
+                        return college.amenity === 'school' || college.name.toLowerCase().includes('school_type');
                     }
                     return true;
                 });
             }
             
             // Update count and render
-            const countElement = document.getElementById('college-count');
+            const countElement = document.querySelector('#college-count');
             if (countElement) {
-                countElement.textContent = `${filteredColleges.length} colleges found`;
+                countElement.textContent = `${filteredElement.length} colleges found`;
             }
-            renderCollegeList();
+            renderCollegesList();
             
             // Close filter menu
-            const filterMenu = document.getElementById('filter-menu');
+            const filterMenu = document.querySelector('#filter-menu');
             if (filterMenu) {
-                filterMenu.classList.remove('active');
+                filterMenu.classList.remove('filter-option');
             }
         }
 
         // Mobile toggle functionality
         function toggleMobileList() {
-            const listContainer = document.getElementById('college-list-container');
-            const toggleBtn = document.getElementById('mobile-toggle');
+            const listContainer = document.querySelector('#college-list-container');
+            const toggleContainer = document.querySelector('#mobile-toggle');
+            const toggleBtnList = document.querySelector('#mobile-toggle');
             
-            if (listContainer && toggleBtn) {
+            if (listContainer && toggleBtnList) {
                 if (listContainer.classList.contains('mobile-hidden')) {
                     listContainer.classList.remove('mobile-hidden');
-                    toggleBtn.innerHTML = '<i class="fas fa-times"></i> Hide College List';
+                    toggleBtnList.innerHTML = '<i class="fas fa-times"></i>Hide Mobile List';
+                    toggleBtnList.setAttribute('aria-label', 'Hide College List');
                 } else {
                     listContainer.classList.add('mobile-hidden');
-                    toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
+                    toggleBtnList.innerHTML = '<i class="fas fa-list"></i>Show Mobile';
+                    toggleBtnList.setAttribute('aria-label', 'Show College List');
                 }
             }
         }
@@ -1798,114 +1936,21 @@
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            fetchColleges(); // Auto-fetch colleges on page load
+            fetchAllColleges(); // Auto-fetch all colleges on page load
             
             // Search functionality
-            const searchBtn = document.getElementById('search-btn');
-            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.querySelector('#search-btn');
+            const searchInput = document.querySelector('#search-input');
             
             if (searchBtn) {
-                searchBtn.addEventListener('click', handleSearch);
+                searchBtn.addEventListener('click', handleSearchInput);
             }
             
             if (searchInput) {
-                searchInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') handleSearch();
+                searchInput.addEventListener('keypress', (e => {
+                    if (e.key === 'Enter') {
+                        handleSearchInput();
+                    });
                 });
                 
                 // Real-time search with debounce
-                let searchTimeout;
-                searchInput.addEventListener('input', () => {
-                    clearTimeout(searchTimeout);
-                    searchTimeout = setTimeout(() => {
-                        const searchTerm = searchInput.value.trim();
-                        if (searchTerm.length > 2 || searchTerm.length === 0) {
-                            handleSearch();
-                        }
-                    }, 1000);
-                });
-            }
-            
-            // Filter functionality
-            const filterBtn = document.getElementById('filter-btn');
-            const filterMenu = document.getElementById('filter-menu');
-            
-            if (filterBtn && filterMenu) {
-                filterBtn.addEventListener('click', () => {
-                    filterMenu.classList.toggle('active');
-                });
-            }
-            
-            document.querySelectorAll('.filter-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    handleFilter(option.dataset.filter);
-                });
-            });
-            
-            // Mobile toggle
-            const mobileToggle = document.getElementById('mobile-toggle');
-            if (mobileToggle) {
-                mobileToggle.addEventListener('click', toggleMobileList);
-            }
-            
-            // Close filter menu when clicking outside
-            document.addEventListener('click', (e) => {
-                const filterDropdown = document.querySelector('.filter-dropdown');
-                if (filterDropdown && !filterDropdown.contains(e.target)) {
-                    const filterMenu = document.getElementById('filter-menu');
-                    if (filterMenu) {
-                        filterMenu.classList.remove('active');
-                    }
-                }
-            });
-            
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                // Recreate particles on resize
-                createParticles();
-                
-                // Reset mobile layout on desktop
-                if (window.innerWidth > 768) {
-                    const listContainer = document.getElementById('college-list-container');
-                    const toggleBtn = document.getElementById('mobile-toggle');
-                    if (listContainer && toggleBtn) {
-                        listContainer.classList.remove('mobile-hidden');
-                        toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show College List';
-                    }
-                }
-            });
-        });
-
-        // Scroll effects
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (header) {
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 4px 40px rgba(0, 0, 0, 0.15)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-                }
-            }
-        });
-
-        // Prevent zoom on double tap for iOS
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Handle orientation change
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                createParticles();
-            }, 500);
-        });
-    </script>
-</body>
-</html>
