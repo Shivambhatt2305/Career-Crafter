@@ -398,7 +398,7 @@
         .chart-container {
             background: white;
             border-radius: 20px;
-            padding: clamp(2rem, 5vw, 3rem);
+            padding: clamp(1.5rem, 4vw, 3rem);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 3rem;
         }
@@ -434,6 +434,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: clamp(0.8rem, 2vw, 1rem);
+            white-space: nowrap;
         }
 
         .chart-btn:hover,
@@ -447,6 +448,7 @@
             display: flex;
             flex-direction: column;
             gap: clamp(1rem, 3vw, 1.5rem);
+            width: 100%;
         }
 
         .chart-bar {
@@ -457,42 +459,46 @@
             background: #f8fafc;
             border-radius: 15px;
             transition: all 0.3s ease;
+            width: 100%;
+            min-height: 60px;
         }
 
         .chart-bar:hover {
             background: #e2e8f0;
-            transform: translateX(10px);
+            transform: translateX(5px);
         }
 
         .bar-icon {
-            width: clamp(40px, 8vw, 50px);
-            height: clamp(40px, 8vw, 50px);
+            width: clamp(35px, 6vw, 50px);
+            height: clamp(35px, 6vw, 50px);
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             flex-shrink: 0;
         }
 
         .bar-label {
-            min-width: clamp(80px, 20vw, 120px);
+            min-width: clamp(70px, 15vw, 120px);
             font-weight: 700;
             color: #1e293b;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
             flex-shrink: 0;
+            text-align: left;
         }
 
         .bar-container {
             flex: 1;
             background: #e2e8f0;
             border-radius: 25px;
-            height: clamp(15px, 3vw, 20px);
+            height: clamp(12px, 2.5vw, 20px);
             position: relative;
             overflow: hidden;
-            min-width: 100px;
+            min-width: 50px;
+            margin: 0 0.5rem;
         }
 
         .bar-fill {
@@ -501,6 +507,7 @@
             border-radius: 25px;
             transition: width 1.5s ease;
             position: relative;
+            width: 0%;
         }
 
         .bar-fill::after {
@@ -520,10 +527,10 @@
         }
 
         .bar-value {
-            min-width: clamp(50px, 12vw, 60px);
+            min-width: clamp(40px, 8vw, 60px);
             font-weight: 800;
             color: #6366f1;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
             text-align: right;
             flex-shrink: 0;
         }
@@ -597,17 +604,6 @@
             color: #94a3b8;
             font-weight: 500;
             font-size: clamp(0.8rem, 2vw, 0.9rem);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         /* Enhanced Responsive Design */
@@ -702,29 +698,52 @@
                 display: block;
             }
 
+            /* Mobile Chart Fixes */
             .chart-bar {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+                align-items: stretch;
+                gap: 0.8rem;
                 text-align: center;
+                padding: 1rem;
+                min-height: auto;
+            }
+
+            .bar-icon {
+                align-self: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .bar-label {
+                min-width: auto;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+                font-size: 0.9rem;
             }
 
             .bar-container {
                 width: 100%;
-                order: 2;
-            }
-
-            .bar-label {
-                order: 1;
-                min-width: auto;
-                width: 100%;
+                margin: 0;
+                height: 15px;
             }
 
             .bar-value {
-                order: 3;
                 min-width: auto;
                 width: 100%;
                 text-align: center;
+                margin-top: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .chart-controls {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .chart-btn {
+                width: 100%;
+                max-width: 250px;
             }
 
             .details-header {
@@ -754,16 +773,6 @@
                 padding: 1.5rem 1rem;
             }
 
-            .chart-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .chart-btn {
-                width: 100%;
-                max-width: 200px;
-            }
-
             .stats-overview {
                 grid-template-columns: 1fr;
             }
@@ -776,7 +785,13 @@
                 padding: 1rem;
             }
 
-            .list-name {
+            .chart-bar {
+                padding: 0.8rem;
+            }
+
+            .bar-icon {
+                width: 35px;
+                height: 35px;
                 font-size: 0.9rem;
             }
         }
@@ -786,17 +801,20 @@
                 flex-direction: column;
             }
             
-            .chart-bar {
-                padding: 0.8rem;
-            }
-            
-            .bar-icon {
-                width: 35px;
-                height: 35px;
-            }
-            
             .overview-card {
                 padding: 1rem;
+            }
+
+            .chart-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .bar-label {
+                font-size: 0.8rem;
+            }
+
+            .bar-value {
+                font-size: 0.8rem;
             }
         }
 
@@ -873,11 +891,11 @@
             }
             
             .nav-menu a {
-                color: #000000;
+                color: #333;
             }
             
             .hamburger span {
-                background: #e2e8f0;
+                background: #333;
             }
         }
     </style>
@@ -1141,7 +1159,7 @@
             }))
         };
 
-        // Render Chart
+        // Render Chart - Fixed for mobile
         function renderChart(type) {
             const chart = document.getElementById("employment-chart");
             const data = employmentData[type];
@@ -1150,7 +1168,7 @@
             chart.innerHTML = "";
             
             data.forEach((item, index) => {
-                const percentage = (item.value / maxValue) * 100;
+                const percentage = Math.max((item.value / maxValue) * 100, 5); // Minimum 5% for visibility
                 const suffix = type === 'salary' ? ' LPA' : '%';
                 
                 const chartBar = document.createElement("div");
@@ -1161,16 +1179,19 @@
                     </div>
                     <div class="bar-label">${item.name}</div>
                     <div class="bar-container">
-                        <div class="bar-fill" style="width: 0%" data-width="${percentage}%"></div>
+                        <div class="bar-fill" data-width="${percentage}%"></div>
                     </div>
                     <div class="bar-value">${item.value}${suffix}</div>
                 `;
                 chart.appendChild(chartBar);
                 
+                // Animate bar fill with proper timing for mobile
                 setTimeout(() => {
                     const barFill = chartBar.querySelector('.bar-fill');
-                    barFill.style.width = percentage + '%';
-                }, index * 100);
+                    if (barFill) {
+                        barFill.style.width = percentage + '%';
+                    }
+                }, (index * 150) + 300); // Increased delay for mobile
             });
         }
 
@@ -1186,7 +1207,7 @@
         // Particle System
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth < 768 ? 25 : 50; // Reduce particles on mobile
+            const particleCount = window.innerWidth < 768 ? 15 : 40; // Reduced for better mobile performance
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -1221,6 +1242,13 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Trigger chart animation when chart container becomes visible
+                    if (entry.target.classList.contains('chart-container')) {
+                        setTimeout(() => {
+                            renderChart('employment');
+                        }, 500);
+                    }
                 }
             });
         }, observerOptions);
@@ -1229,7 +1257,9 @@
         if (window.matchMedia("(hover: hover)").matches) {
             document.querySelectorAll(".overview-card, .list-item, .detail-item").forEach((el) => {
                 el.addEventListener("mouseenter", function () {
-                    this.style.transform = "translateY(-5px)";
+                    if (window.innerWidth > 768) {
+                        this.style.transform = "translateY(-5px)";
+                    }
                 });
                 el.addEventListener("mouseleave", function () {
                     this.style.transform = "translateY(0)";
@@ -1241,12 +1271,12 @@
         function handleResize() {
             // Adjust particles for device
             const particles = document.querySelectorAll('.particle');
-            if (window.innerWidth < 768) {
-                particles.forEach((particle, index) => {
-                    if (index > 24) { // Keep only 25 particles on mobile
-                        particle.remove();
-                    }
-                });
+            const targetCount = window.innerWidth < 768 ? 15 : 40;
+            
+            if (particles.length > targetCount) {
+                for (let i = targetCount; i < particles.length; i++) {
+                    particles[i].remove();
+                }
             }
 
             // Close mobile menu on resize
@@ -1255,6 +1285,14 @@
                 navMenu.classList.remove("active");
                 listView.classList.remove("active");
                 listToggle.innerHTML = '<i class="fas fa-bars"></i> Show Industries';
+            }
+
+            // Re-render chart on resize to ensure proper display
+            const activeBtn = document.querySelector('.chart-btn.active');
+            if (activeBtn) {
+                setTimeout(() => {
+                    renderChart(activeBtn.getAttribute('data-chart'));
+                }, 300);
             }
         }
 
@@ -1265,7 +1303,11 @@
             createParticles();
             renderListView();
             renderDetailsView(mockApiData.sectors[0]); // Default to first sector
-            renderChart('employment');
+            
+            // Initialize chart after a delay to ensure proper rendering
+            setTimeout(() => {
+                renderChart('employment');
+            }, 1000);
             
             document.querySelectorAll('.overview-card, .list-view, .details-view, .chart-container').forEach(el => {
                 el.style.opacity = '0';
@@ -1284,6 +1326,16 @@
             }
             lastTouchEnd = now;
         }, false);
+
+        // Force chart re-render on orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                const activeBtn = document.querySelector('.chart-btn.active');
+                if (activeBtn) {
+                    renderChart(activeBtn.getAttribute('data-chart'));
+                }
+            }, 500);
+        });
     </script>
 </body>
 </html>
