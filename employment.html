@@ -492,7 +492,7 @@
         .chart-btn:hover,
         .chart-btn:focus,
         .chart-btn.active {
-            background: #6366f1;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
@@ -959,58 +959,58 @@
         /* Dark Mode Support */
         @media (prefers-color-scheme: dark) {
             body {
-                background: linear-gradient(135deg, #1e293b, #334155);
+                background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
             }
             .header {
-                background: rgba(30, 41, 59, 0.95);
+                background: rgba(255, 255, 255, 0.95);
             }
             .list-view,
             .details-view,
             .chart-container {
-                background: rgba(30, 41, 59, 0.95);
-                color: #e2e8f0;
+                background: white;
+                color: #333;
             }
             .list-item {
-                border-bottom-color: #475569;
+                border-bottom-color: #e2e8f0;
             }
             .list-item:hover {
-                background: rgba(99, 102, 241, 0.2);
+                background: rgba(99, 102, 241, 0.1);
             }
             .chart-bar {
-                background: #334155;
-                border-color: #475569;
+                background: #f8fafc;
+                border-color: #e2e8f0;
             }
             .chart-bar:hover {
-                background: #475569;
+                background: #e2e8f0;
             }
             .bar-container {
-                background: #475569;
+                background: #e2e8f0;
             }
             .bar-value,
             .details-title,
             .bar-label {
-                color: #e2e8f0;
+                color: #6366f1;
             }
             .detail-item {
-                background: #334155;
+                background: #f8fafc;
             }
             .detail-item:hover {
-                background: #475569;
-            }
-            .detail-label {
-                color: #94a3b8;
-            }
-            .overview-card {
-                background: linear-gradient(135deg, #4b5efa, #a855f7);
-            }
-            .hamburger span {
                 background: #e2e8f0;
             }
+            .detail-label {
+                color: #64748b;
+            }
+            .overview-card {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            }
+            .hamburger span {
+                background: #333;
+            }
             .nav-menu {
-                background: rgba(30, 41, 59, 0.98);
+                background: rgba(255, 255, 255, 0.98);
             }
             .nav-menu a {
-                color: #e2e8f0;
+                color: #333;
             }
         }
     </style>
