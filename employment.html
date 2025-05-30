@@ -176,23 +176,6 @@
         }
 
         /* Back to Home */
-        .back-home {
-            display: inline-block;
-            margin: clamp(1rem, 3vw, 2rem) 0;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-
-        .back-home:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-        }
 
         /* List and Details View */
         .list-details-container {
@@ -700,8 +683,7 @@
 
             /* Mobile Chart Fixes */
             .chart-bar {
-                flex-direction: column;
-                align-items: stretch;
+                align-items: center;
                 gap: 0.8rem;
                 text-align: center;
                 padding: 1.2rem;
@@ -925,6 +907,18 @@
                 background: #333;
             }
         }
+
+        .back-arrow {
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .back-arrow:hover {
+            color: #6366f1;
+        }
     </style>
 </head>
 <body>
@@ -934,6 +928,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
+            <i class="fas fa-arrow-left back-arrow"></i>
             <div class="nav-brand">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Career Crafters</span>
@@ -956,9 +951,6 @@
     <!-- Main Content -->
     <section class="main-content">
         <div class="container">
-            <a href="index.html" class="back-home">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
             <div class="section-header">
                 <h2>India Employment Market Insights</h2>
                 <p>Explore detailed analysis of job market trends across key Indian industries to make informed career decisions.</p>
@@ -1079,10 +1071,15 @@
         // Mobile Navigation
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
+        const backArrow = document.querySelector(".back-arrow");
 
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
+        });
+
+        backArrow.addEventListener("click", () => {
+            window.location.href = "index.html";
         });
 
         document.querySelectorAll(".nav-menu a").forEach((link) => {
@@ -1201,26 +1198,26 @@
                 const chartBar = document.createElement("div");
                 chartBar.className = "chart-bar";
                 chartBar.innerHTML = `
-            <div class="bar-icon">
-                <i class="${item.icon}"></i>
-            </div>
-            <div class="bar-label">${item.name}</div>
-            <div class="bar-container">
-                <div class="bar-fill" data-width="${percentage}%"></div>
-            </div>
-            <div class="bar-value">${item.value}${suffix}</div>
-        `;
+                    <div class="bar-icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    <div class="bar-label">${item.name}</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" data-width="${percentage}%"></div>
+                    </div>
+                    <div class="bar-value">${item.value}${suffix}</div>
+                `;
                 chart.appendChild(chartBar);
         
-        // Animate bar fill with staggered timing
-        setTimeout(() => {
-            const barFill = chartBar.querySelector('.bar-fill');
-            if (barFill) {
-                barFill.style.width = percentage + '%';
-            }
-        }, (index * 200) + 500); // Increased delay for better mobile experience
-    });
-}
+                // Animate bar fill with staggered timing
+                setTimeout(() => {
+                    const barFill = chartBar.querySelector('.bar-fill');
+                    if (barFill) {
+                        barFill.style.width = percentage + '%';
+                    }
+                }, (index * 200) + 500); // Increased delay for better mobile experience
+            });
+        }
 
         // Chart Controls
         document.querySelectorAll('.chart-btn').forEach(btn => {
